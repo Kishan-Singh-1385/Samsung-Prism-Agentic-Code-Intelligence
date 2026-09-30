@@ -224,8 +224,9 @@ README was prepared.
 
 ## Presentation
 
-PPT missing - must be added manually. No presentation file was present in the
-repository when this README was prepared.
+The final project presentation is available here:
+
+[SAMSUNG-PRISM-AGENTIC-CODE-INTELLIGENCE.pptx](presentation/SAMSUNG-PRISM-AGENTIC-CODE-INTELLIGENCE.pptx)
 
 ## Team
 

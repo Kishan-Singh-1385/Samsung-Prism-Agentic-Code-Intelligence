@@ -1,0 +1,37 @@
+experiment:
+  task: AppsRetrieval
+  dataset_revision: f22508f96b7a36c2415181ed8bb76f76e04ae2d5
+  output_file: artifacts/experiments/results.json
+  diagnostics_file: artifacts/experiments/diagnostics/lexical_retrieval.json
+  cache_folder: artifacts/experiments/cache
+
+baseline_dense:
+  model: sentence-transformers/all-MiniLM-L6-v2
+  revision: 1110a243fdf4706b3f48f1d95db1a4f5529b4d41
+
+bm25:
+  implementation: rank-bm25.BM25Okapi
+  k1: 1.5
+  b: 0.75
+  epsilon: 0.25
+  candidate_depth: 200
+  tokenizer:
+    version: programming_tokens_v1
+    keep_whole_identifiers: true
+    split_snake_case: true
+    split_camel_case: true
+    keep_numbers: true
+    min_token_length: 1
+    stopwords: false
+    stemming: false
+
+hybrid:
+  candidate_depth: 100
+  rrf_k: 60
+  depth_ablation: [50, 100, 200]
+  rrf_k_ablation: [10, 60, 100]
+
+runtime:
+  device: cpu
+  batch_size: 16
+  seed: 42

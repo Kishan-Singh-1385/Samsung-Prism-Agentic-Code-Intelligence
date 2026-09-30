@@ -1,0 +1,1262 @@
+{
+  "dataset_task": "AppsRetrieval",
+  "dataset_revision": "f22508f96b7a36c2415181ed8bb76f76e04ae2d5",
+  "split": "test",
+  "test_labels_used_only_for_final_metrics_and_post-ranking_diagnostics": true,
+  "training_or_feature_correlation_analysis": "not performed: no train/dev qrels",
+  "score_formula": "equal mean of per-query min-max dense cosine and BM25 scores, dense/BM25 reciprocal ranks, lexical overlap fraction, identifier overlap fraction, and exact query bigram fraction; no fitted weights",
+  "queries": [
+    {
+      "query_id": "q5005",
+      "query": "Jamie loves sleeping. One day, he decides that he needs to wake up at exactly hh: mm. However, he hates waking up, so he wants to make waking up less painful by setting the alarm at a lucky time. He will then press the snooze button every x minutes until hh: mm is reached, and only then he will wake up. He wants to know what is the smallest number of times he needs to press the snooze button.\n\nA time is considered lucky if it contains a digit '7'. For example, 13: 07 and 17: 27 are lucky, while 00: 48 and 21: 34 are not lucky.\n\nNote that it is not necessary that the time set for the alarm and the wake-up time are on the same day. It is guaranteed that there is a lucky time Jamie can set so that he can wake at hh: mm.\n\nFormally, find the smallest possible non-negative integer y such that the time representation of the time x·y minutes before hh: mm contains the digit '7'.\n\nJamie uses 24-hours clock, so after 23: 59 comes 00: 00.\n\n\n-----Input-----\n\nThe first line contains a single integer x (1 ≤ x ≤ 60).\n\nThe second line contains two two-digit integers, hh and mm (00 ≤ hh ≤ 23, 00 ≤ mm ≤ 59).\n\n\n-----Output-----\n\nPrint the minimum number of times he needs to press the button.\n\n\n-----Examples-----\nInput\n3\n11 23\n\nOutput\n2\n\nInput\n5\n01 07\n\nOutput\n0\n\n\n\n-----Note-----\n\nIn the first sample, Jamie needs to wake up at 11:23. So, he can set his alarm at 11:17. He would press the snooze button when the alarm rings at 11:17 and at 11:20.\n\nIn the second sample, Jamie can set his alarm at exactly at 01:07 which is lucky.",
+      "behavior_vs_dense_for_relevant_candidate": "improves_relevant_result",
+      "example_relevant_document_id": "d5005",
+      "reranked_top_candidates": [
+        {
+          "document_id": "d3745",
+          "dense_rank": null,
+          "bm25_rank": 1,
+          "dense_score": null,
+          "bm25_score": 414.2589281892256,
+          "reranker_score": 0.35392917043460786,
+          "final_rank": 1,
+          "relevant": false,
+          "code_excerpt": "def oddest(numbers): most_odd = 0 # The current most odd number in the list max_oddity = -1 # The current greatest oddity rate, starts at -1 so that even an even number can be the unique most odd is_unique = True # If the current most odd number is really the most, so if there is"
+        },
+        {
+          "document_id": "d4422",
+          "dense_rank": 1,
+          "bm25_rank": null,
+          "dense_score": 0.5512426495552063,
+          "bm25_score": 0.0,
+          "reranker_score": 0.299325248684119,
+          "final_rank": 2,
+          "relevant": false,
+          "code_excerpt": "def to_seconds(time): try: s, m, h = int(time[-2:]), int(time[3:5]), int(time[:2]) return s + m*60 + h*3600 if m < 60 and s < 60 and len(time) == 8 else None except: return None"
+        },
+        {
+          "document_id": "d3983",
+          "dense_rank": 22,
+          "bm25_rank": 7,
+          "dense_score": 0.41621294617652893,
+          "bm25_score": 339.01376769702694,
+          "reranker_score": 0.28649751215222474,
+          "final_rank": 3,
+          "relevant": false,
+          "code_excerpt": "def stat(strg): def get_time(s): '''Returns the time, in seconds, represented by s.''' hh, mm, ss = [int(v) for v in s.split('|')] return hh * 3600 + mm * 60 + ss def format_time(time): '''Returns the given time as a string in the form \"hh|mm|ss\".''' hh = time // 3600 mm = time /"
+        },
+        {
+          "document_id": "d3889",
+          "dense_rank": 2,
+          "bm25_rank": 168,
+          "dense_score": 0.5241867899894714,
+          "bm25_score": 143.3213712214282,
+          "reranker_score": 0.282915697881741,
+          "final_rank": 4,
+          "relevant": false,
+          "code_excerpt": "def clock_degree(clock_time): hour, minutes = (int(a) for a in clock_time.split(':')) if not (24 > hour >= 0 and 60 > minutes >= 0): return 'Check your time !' return '{}:{}'.format((hour % 12) * 30 or 360, minutes * 6 or 360)"
+        },
+        {
+          "document_id": "d135",
+          "dense_rank": 45,
+          "bm25_rank": 11,
+          "dense_score": 0.3713502883911133,
+          "bm25_score": 312.11449317684804,
+          "reranker_score": 0.2780950742467729,
+          "final_rank": 5,
+          "relevant": false,
+          "code_excerpt": "class Solution: def numDupDigitsAtMostN(self, N: int) -> int: # N -> total numbers less than or equal to N # We will calculate the integers with all different digits (which are less than/equal to N) # Then the answer would be: N - nums_with_different_digits # Calculate the number"
+        },
+        {
+          "document_id": "d3378",
+          "dense_rank": 4,
+          "bm25_rank": 119,
+          "dense_score": 0.5126930475234985,
+          "bm25_score": 177.09826416924165,
+          "reranker_score": 0.26631893442264054,
+          "final_rank": 6,
+          "relevant": false,
+          "code_excerpt": "def solve(time): def number(n): if n > 20: return \"twenty {}\".format(number(n - 20)) return [ None, \"one\", \"two\", \"three\", \"four\", \"five\", \"six\", \"seven\", \"eight\", \"nine\", \"ten\", \"eleven\", \"twelve\", \"thirteen\", \"fourteen\", \"fifteen\", \"sixteen\", \"seventeen\", \"eighteen\", \"nineteen\""
+        },
+        {
+          "document_id": "d1664",
+          "dense_rank": null,
+          "bm25_rank": 2,
+          "dense_score": null,
+          "bm25_score": 391.84257295858174,
+          "reranker_score": 0.25427751346773486,
+          "final_rank": 7,
+          "relevant": false,
+          "code_excerpt": "def count_divisors(n): \"\"\"Counts the integer points under the parabola xy = n. Because the region is symmetric about x = y, it is only necessary to sum up to that point (at n^{1/2}), and double it. By this method, a square region is counted twice, and thus subtracted off the tota"
+        },
+        {
+          "document_id": "d3316",
+          "dense_rank": null,
+          "bm25_rank": 3,
+          "dense_score": null,
+          "bm25_score": 376.27107494850816,
+          "reranker_score": 0.2523947495372728,
+          "final_rank": 8,
+          "relevant": false,
+          "code_excerpt": "\"\"\"Strongest even number in an interval kata Defines strongest_even(n, m) which returns the strongest even number in the set of integers on the interval [n, m]. Constraints: 1. 1 <= n < m < MAX_INT Note: 1. The evenness of zero is need not be defined given the constraints. 2. In "
+        },
+        {
+          "document_id": "d1980",
+          "dense_rank": 6,
+          "bm25_rank": 123,
+          "dense_score": 0.49124425649642944,
+          "bm25_score": 175.3415445469859,
+          "reranker_score": 0.23294191510097817,
+          "final_rank": 9,
+          "relevant": false,
+          "code_excerpt": "class Solution: def largestTimeFromDigits(self, A: List[int]) -> str: max_time = -1 # enumerate all possibilities, with the permutation() func for h, i, j, k in itertools.permutations(A): hour = h*10 + i minute = j*10 + k if hour < 24 and minute < 60: max_time = max(max_time, hou"
+        },
+        {
+          "document_id": "d2104",
+          "dense_rank": null,
+          "bm25_rank": 17,
+          "dense_score": null,
+          "bm25_score": 293.1763321989235,
+          "reranker_score": 0.22500838887496247,
+          "final_rank": 10,
+          "relevant": false,
+          "code_excerpt": "#!/usr/bin/env python # 556D_fug.py - Codeforces.com 556D Fug quiz # # Copyright (C) 2015 Sergey # Licensed under the Apache License, Version 2.0 (the \"License\"); # you may not use this file except in compliance with the License. # You may obtain a copy of the License at # http:/"
+        }
+      ],
+      "example_candidate_features": {
+        "dense_cosine_similarity": 0.4138573110103607,
+        "bm25_score": 214.12831261939093,
+        "dense_rank": 25,
+        "bm25_rank": 66,
+        "dense_reciprocal_rank": 0.04,
+        "bm25_reciprocal_rank": 0.015151515151515152,
+        "query_token_count": 301,
+        "candidate_token_count": 55,
+        "lexical_overlap_count": 13,
+        "lexical_overlap_fraction": 0.10655737704918032,
+        "identifier_overlap_count": 10,
+        "identifier_overlap_fraction": 0.09900990099009901,
+        "exact_phrase_bigram_count": 5,
+        "query_terms_in_candidate": 13,
+        "query_term_fraction": 0.10655737704918032
+      },
+      "example_relevant_candidate_details": {
+        "document_id": "d5005",
+        "dense_rank": 25,
+        "bm25_rank": 66,
+        "dense_score": 0.4138573110103607,
+        "bm25_score": 214.12831261939093,
+        "reranker_score": 0.2207216996188003,
+        "final_rank": 12,
+        "relevant": true,
+        "code_excerpt": "x=int(input()) h,m=list(map(int,input().split())) def ok(mm): while mm<0: mm+=1440 hh=mm//60 mm=mm%60 return hh%10==7 or hh//10==7 or mm%10==7 or mm//10==7 for y in range(999): if ok(h*60+m-y*x): print(y) return"
+      }
+    },
+    {
+      "query_id": "q5001",
+      "query": "An accordion is a string (yes, in the real world accordions are musical instruments, but let's forget about it for a while) which can be represented as a concatenation of: an opening bracket (ASCII code $091$), a colon (ASCII code $058$), some (possibly zero) vertical line characters (ASCII code $124$), another colon, and a closing bracket (ASCII code $093$). The length of the accordion is the number of characters in it.\n\nFor example, [::], [:||:] and [:|||:] are accordions having length $4$, $6$ and $7$. (:|:), {:||:}, [:], ]:||:[ are not accordions. \n\nYou are given a string $s$. You want to transform it into an accordion by removing some (possibly zero) characters from it. Note that you may not insert new characters or reorder existing ones. Is it possible to obtain an accordion by removing characters from $s$, and if so, what is the maximum possible length of the result?\n\n\n-----Input-----\n\nThe only line contains one string $s$ ($1 \\le |s| \\le 500000$). It consists of lowercase Latin letters and characters [, ], : and |.\n\n\n-----Output-----\n\nIf it is not possible to obtain an accordion by removing some characters from $s$, print $-1$. Otherwise print maximum possible length of the resulting accordion.\n\n\n-----Examples-----\nInput\n|[a:b:|]\n\nOutput\n4\n\nInput\n|]:[|:]\n\nOutput\n-1",
+      "behavior_vs_dense_for_relevant_candidate": "hurts_relevant_result",
+      "example_relevant_document_id": "d5001",
+      "reranked_top_candidates": [
+        {
+          "document_id": "d3316",
+          "dense_rank": null,
+          "bm25_rank": 1,
+          "dense_score": null,
+          "bm25_score": 290.4547409661879,
+          "reranker_score": 0.37195082959815995,
+          "final_rank": 1,
+          "relevant": false,
+          "code_excerpt": "\"\"\"Strongest even number in an interval kata Defines strongest_even(n, m) which returns the strongest even number in the set of integers on the interval [n, m]. Constraints: 1. 1 <= n < m < MAX_INT Note: 1. The evenness of zero is need not be defined given the constraints. 2. In "
+        },
+        {
+          "document_id": "d1639",
+          "dense_rank": 38,
+          "bm25_rank": 10,
+          "dense_score": 0.3830419182777405,
+          "bm25_score": 238.50495832396714,
+          "reranker_score": 0.3162746393329484,
+          "final_rank": 2,
+          "relevant": false,
+          "code_excerpt": "''' Write a function that returns the longest contiguous palindromic substring in s. In the event that there are multiple longest palindromic substrings, return the first to occur. ''' def longest_palindrome(s, sep=\" \"): # Interpolate some inert character between input characters"
+        },
+        {
+          "document_id": "d306",
+          "dense_rank": 1,
+          "bm25_rank": null,
+          "dense_score": 0.460821270942688,
+          "bm25_score": 0.0,
+          "reranker_score": 0.30576382380506095,
+          "final_rank": 3,
+          "relevant": false,
+          "code_excerpt": "# class Solution: # def distinctEchoSubstrings(self, text: str) -> int: # ans = set() # for i in range(len(text)-1): # for j in range(i+1, (i+len(text))//2+1): # if text[i:j] == text[j:2*j-i]: ans.add(text[i:j]) # return len(ans) from collections import defaultdict, deque class S"
+        },
+        {
+          "document_id": "d243",
+          "dense_rank": 115,
+          "bm25_rank": 22,
+          "dense_score": 0.35252660512924194,
+          "bm25_score": 203.50122778360938,
+          "reranker_score": 0.2848219517077486,
+          "final_rank": 4,
+          "relevant": false,
+          "code_excerpt": "class Solution: def isvalid(self,C): if len(C)>2: return False if len(C)==1: a = min(C) if a==1 or C[a]==1: # EXPLANATION: # a==1 : All lengths are unitary like A=[1,2,3,4,...], so poping anything is fine # C[a]==1: We have a unique length occurence like A=[4,4,4,4,...], so popin"
+        },
+        {
+          "document_id": "d3609",
+          "dense_rank": null,
+          "bm25_rank": 2,
+          "dense_score": null,
+          "bm25_score": 268.44212659848245,
+          "reranker_score": 0.2682758705246869,
+          "final_rank": 5,
+          "relevant": false,
+          "code_excerpt": "database = '''werewolf : Silver knife or bullet to the heart vampire : Behead it with a machete wendigo : Burn it to death shapeshifter : Silver knife or bullet to the heart angel : Use the angelic blade demon : Use Ruby's knife, or some Jesus-juice ghost : Salt and iron, and don"
+        },
+        {
+          "document_id": "d2104",
+          "dense_rank": null,
+          "bm25_rank": 11,
+          "dense_score": null,
+          "bm25_score": 237.66664974417046,
+          "reranker_score": 0.2678927076395797,
+          "final_rank": 6,
+          "relevant": false,
+          "code_excerpt": "#!/usr/bin/env python # 556D_fug.py - Codeforces.com 556D Fug quiz # # Copyright (C) 2015 Sergey # Licensed under the Apache License, Version 2.0 (the \"License\"); # you may not use this file except in compliance with the License. # You may obtain a copy of the License at # http:/"
+        },
+        {
+          "document_id": "d2972",
+          "dense_rank": 52,
+          "bm25_rank": 19,
+          "dense_score": 0.37558504939079285,
+          "bm25_score": 212.87976901391863,
+          "reranker_score": 0.2549060580768014,
+          "final_rank": 7,
+          "relevant": false,
+          "code_excerpt": "def watch_pyramid_from_the_side(characters): if not characters : return characters baseLen = len(characters)*2-1 return '\\n'.join( ' '*(i) + characters[i]*(baseLen-2*i) + ' '*(i) for i in range(len(characters)-1,-1,-1) ) def watch_pyramid_from_above(characters): if not characters"
+        },
+        {
+          "document_id": "d6465",
+          "dense_rank": 6,
+          "bm25_rank": 152,
+          "dense_score": 0.4273555874824524,
+          "bm25_score": 116.58688344832436,
+          "reranker_score": 0.2490409394464908,
+          "final_rank": 8,
+          "relevant": false,
+          "code_excerpt": "import re import itertools from collections import Counter class Task: strings = [] answer = \"\" def getData(self): numberOfStrings = int(input()) for i in range(0, numberOfStrings): self.strings += [input()] def solve(self): badStrings = set() for current in self.strings: for lef"
+        },
+        {
+          "document_id": "d3745",
+          "dense_rank": null,
+          "bm25_rank": 4,
+          "dense_score": null,
+          "bm25_score": 261.18008320509523,
+          "reranker_score": 0.2432533407100212,
+          "final_rank": 9,
+          "relevant": false,
+          "code_excerpt": "def oddest(numbers): most_odd = 0 # The current most odd number in the list max_oddity = -1 # The current greatest oddity rate, starts at -1 so that even an even number can be the unique most odd is_unique = True # If the current most odd number is really the most, so if there is"
+        },
+        {
+          "document_id": "d7270",
+          "dense_rank": 97,
+          "bm25_rank": 60,
+          "dense_score": 0.3561685085296631,
+          "bm25_score": 160.18746771099777,
+          "reranker_score": 0.24167989992343591,
+          "final_rank": 10,
+          "relevant": false,
+          "code_excerpt": "t=int(input()) no_of_chars = 256 # Function to find smallest window # containing all characters of 'pat' def findSubString(string, pat): len1 = len(string) len2 = len(pat) if len1 < len2: return 0 hash_pat = [0] * no_of_chars hash_str = [0] * no_of_chars for i in range(0, len2): "
+        }
+      ],
+      "example_candidate_features": {
+        "dense_cosine_similarity": 0.34022262692451477,
+        "bm25_score": 0.0,
+        "dense_rank": 176,
+        "bm25_rank": 0,
+        "dense_reciprocal_rank": 0.005681818181818182,
+        "bm25_reciprocal_rank": 0.0,
+        "query_token_count": 202,
+        "candidate_token_count": 85,
+        "lexical_overlap_count": 9,
+        "lexical_overlap_fraction": 0.09278350515463918,
+        "identifier_overlap_count": 7,
+        "identifier_overlap_fraction": 0.07954545454545454,
+        "exact_phrase_bigram_count": 1,
+        "query_terms_in_candidate": 9,
+        "query_term_fraction": 0.09278350515463918
+      },
+      "example_relevant_candidate_details": {
+        "document_id": "d5001",
+        "dense_rank": 176,
+        "bm25_rank": null,
+        "dense_score": 0.34022262692451477,
+        "bm25_score": 0.0,
+        "reranker_score": 0.13161173934406614,
+        "final_rank": 182,
+        "relevant": true,
+        "code_excerpt": "s = input() n = len(s) ind = -1 f = False for i in range(n): if s[i] == '[': f = True elif s[i] == ':': if f: ind = i break bind = -1 f = False for i in range(n-1,-1,-1): if s[i] == ']': f = True elif s[i] == ':': if f: bind = i break # print(ind,bind) if ind == -1 or bind == -1:"
+      }
+    },
+    {
+      "query_id": "q5002",
+      "query": "Anton has the integer x. He is interested what positive integer, which doesn't exceed x, has the maximum sum of digits.\n\nYour task is to help Anton and to find the integer that interests him. If there are several such integers, determine the biggest of them. \n\n\n-----Input-----\n\nThe first line contains the positive integer x (1 ≤ x ≤ 10^18) — the integer which Anton has. \n\n\n-----Output-----\n\nPrint the positive integer which doesn't exceed x and has the maximum sum of digits. If there are several such integers, print the biggest of them. Printed integer must not contain leading zeros.\n\n\n-----Examples-----\nInput\n100\n\nOutput\n99\n\nInput\n48\n\nOutput\n48\n\nInput\n521\n\nOutput\n499",
+      "behavior_vs_dense_for_relevant_candidate": "little_difference",
+      "example_relevant_document_id": null,
+      "reranked_top_candidates": [
+        {
+          "document_id": "d1101",
+          "dense_rank": null,
+          "bm25_rank": 1,
+          "dense_score": null,
+          "bm25_score": 226.94031468402443,
+          "reranker_score": 0.382621093550202,
+          "final_rank": 1,
+          "relevant": false,
+          "code_excerpt": "# cook your dish here \"\"\" Input: The first line of the input contains a single integer T denoting the number of test cases. The description of T test cases follows. The first line of each test case contains three space-separated integers p, q and r. The second line contains three"
+        },
+        {
+          "document_id": "d6517",
+          "dense_rank": 1,
+          "bm25_rank": null,
+          "dense_score": 0.614357590675354,
+          "bm25_score": 0.0,
+          "reranker_score": 0.30699196972021886,
+          "final_rank": 2,
+          "relevant": false,
+          "code_excerpt": "a = int(input()) c = list(map(int,input().split())) summ = 0 for i in range(a): k = 0 k1 = 0 s = str(c[i]) for x in s: k = k * 100 + int(x) k1 = k * 10 summ += (k + k1) * a summ %= 998244353 print(summ)"
+        },
+        {
+          "document_id": "d4331",
+          "dense_rank": null,
+          "bm25_rank": 2,
+          "dense_score": null,
+          "bm25_score": 202.7848221231067,
+          "reranker_score": 0.26919791852168595,
+          "final_rank": 3,
+          "relevant": false,
+          "code_excerpt": "def shortest_arrang(n): # For odd n, we can always construct n with 2 consecutive integers. if n % 2 == 1: return [n//2 + 1, n//2] # For even n, n is the sum of either an odd number or even number of # consecutive positive integers. Moreover, this property is exclusive. for i in "
+        },
+        {
+          "document_id": "d2104",
+          "dense_rank": null,
+          "bm25_rank": 10,
+          "dense_score": null,
+          "bm25_score": 142.3879475836811,
+          "reranker_score": 0.25271774069552333,
+          "final_rank": 4,
+          "relevant": false,
+          "code_excerpt": "#!/usr/bin/env python # 556D_fug.py - Codeforces.com 556D Fug quiz # # Copyright (C) 2015 Sergey # Licensed under the Apache License, Version 2.0 (the \"License\"); # you may not use this file except in compliance with the License. # You may obtain a copy of the License at # http:/"
+        },
+        {
+          "document_id": "d6850",
+          "dense_rank": 2,
+          "bm25_rank": null,
+          "dense_score": 0.5886785387992859,
+          "bm25_score": 0.0,
+          "reranker_score": 0.23501394199709846,
+          "final_rank": 5,
+          "relevant": false,
+          "code_excerpt": "n = int(input()) out = [] MOD = 998244353 for i in range(1, n + 1): if i == n: out.append(10) else: nex = 2 * 9 * pow(10, n - i - 1, MOD) * 10 if i < n - 1: nex += (n - 1 - i) * 9 * 9 * pow(10, n - i - 2, MOD) * 10 out.append(nex % MOD) print(' '.join(map(str,out))) #print(sum((i"
+        },
+        {
+          "document_id": "d1690",
+          "dense_rank": null,
+          "bm25_rank": 57,
+          "dense_score": null,
+          "bm25_score": 106.12727890149213,
+          "reranker_score": 0.2200721048185935,
+          "final_rank": 6,
+          "relevant": false,
+          "code_excerpt": "# import all important libraries and inbuilt functions from fractions import Fraction import numpy as np import sys,bisect,copyreg,copy,statistics,os from math import * from collections import Counter,defaultdict,deque,OrderedDict from itertools import combinations,permutations,a"
+        },
+        {
+          "document_id": "d1929",
+          "dense_rank": null,
+          "bm25_rank": 3,
+          "dense_score": null,
+          "bm25_score": 176.21936852840406,
+          "reranker_score": 0.21071580154008518,
+          "final_rank": 7,
+          "relevant": false,
+          "code_excerpt": "# \"\"\" # This is the interface that allows for creating nested lists. # You should not implement it, or speculate about its implementation # \"\"\" #class NestedInteger: # def __init__(self, value=None): # \"\"\" # If value is not specified, initializes an empty list. # Otherwise initia"
+        },
+        {
+          "document_id": "d7485",
+          "dense_rank": 3,
+          "bm25_rank": null,
+          "dense_score": 0.5862119197845459,
+          "bm25_score": 0.0,
+          "reranker_score": 0.210630852970328,
+          "final_rank": 8,
+          "relevant": false,
+          "code_excerpt": "def main(): ans = 0 n = int(input()) A = [int(i) for i in input().split()]+[10**9] Sum = 0 right = 0 for left in range(n): while(right<n): if Sum^A[right] == Sum+A[right]: Sum += A[right] right += 1 else: break ans += right-left if left==right: right +=1 else: Sum -= A[left] prin"
+        },
+        {
+          "document_id": "d7133",
+          "dense_rank": null,
+          "bm25_rank": 4,
+          "dense_score": null,
+          "bm25_score": 171.70053419925844,
+          "reranker_score": 0.20434839317099548,
+          "final_rank": 9,
+          "relevant": false,
+          "code_excerpt": "speeds = [1000000] overtakes = [True] count = 0 speed = 0 n = int(input()) for e in range(n): inp = list(map(int, input().split())) # print(inp) if inp[0] == 4: overtakes.append(True) elif inp[0] == 6: overtakes.append(False) elif inp[0] == 5: speeds.append(1000000) elif inp[0] ="
+        },
+        {
+          "document_id": "d3316",
+          "dense_rank": null,
+          "bm25_rank": 5,
+          "dense_score": null,
+          "bm25_score": 160.7249582513471,
+          "reranker_score": 0.20273511937417002,
+          "final_rank": 10,
+          "relevant": false,
+          "code_excerpt": "\"\"\"Strongest even number in an interval kata Defines strongest_even(n, m) which returns the strongest even number in the set of integers on the interval [n, m]. Constraints: 1. 1 <= n < m < MAX_INT Note: 1. The evenness of zero is need not be defined given the constraints. 2. In "
+        }
+      ],
+      "example_candidate_features": null,
+      "example_relevant_candidate_details": null
+    },
+    {
+      "query_id": "q8109",
+      "query": "-----Input-----\n\nThe input contains a single integer a (1 ≤ a ≤ 30).\n\n\n-----Output-----\n\nOutput a single integer.\n\n\n-----Example-----\nInput\n3\n\nOutput\n27",
+      "behavior_vs_dense_for_relevant_candidate": "little_difference",
+      "example_relevant_document_id": null,
+      "reranked_top_candidates": [
+        {
+          "document_id": "d1101",
+          "dense_rank": null,
+          "bm25_rank": 1,
+          "dense_score": null,
+          "bm25_score": 65.47281272465038,
+          "reranker_score": 0.5630952380952381,
+          "final_rank": 1,
+          "relevant": false,
+          "code_excerpt": "# cook your dish here \"\"\" Input: The first line of the input contains a single integer T denoting the number of test cases. The description of T test cases follows. The first line of each test case contains three space-separated integers p, q and r. The second line contains three"
+        },
+        {
+          "document_id": "d8393",
+          "dense_rank": 1,
+          "bm25_rank": null,
+          "dense_score": 0.6145450472831726,
+          "bm25_score": 0.0,
+          "reranker_score": 0.35714285714285715,
+          "final_rank": 2,
+          "relevant": false,
+          "code_excerpt": "a = int(input()) ans = a + a**2 + a**3 print(ans)"
+        },
+        {
+          "document_id": "d7478",
+          "dense_rank": 2,
+          "bm25_rank": 79,
+          "dense_score": 0.6040010452270508,
+          "bm25_score": 25.600054382418513,
+          "reranker_score": 0.3528338528021021,
+          "final_rank": 3,
+          "relevant": false,
+          "code_excerpt": "N, K = map(int, input().split()) A = list(map(int, input().split())) ans = [] c = 2**30 r = 2**30 while r: r //= 2 l = sum(-(-a//c)-1 for a in A) if l > K: c += r else: ans.append(c) c -= r print(ans and min(ans) or 1)"
+        },
+        {
+          "document_id": "d1929",
+          "dense_rank": null,
+          "bm25_rank": 2,
+          "dense_score": null,
+          "bm25_score": 46.38701715932786,
+          "reranker_score": 0.3321656397276817,
+          "final_rank": 4,
+          "relevant": false,
+          "code_excerpt": "# \"\"\" # This is the interface that allows for creating nested lists. # You should not implement it, or speculate about its implementation # \"\"\" #class NestedInteger: # def __init__(self, value=None): # \"\"\" # If value is not specified, initializes an empty list. # Otherwise initia"
+        },
+        {
+          "document_id": "d2104",
+          "dense_rank": null,
+          "bm25_rank": 91,
+          "dense_score": null,
+          "bm25_score": 24.739154593910982,
+          "reranker_score": 0.3091204092267195,
+          "final_rank": 5,
+          "relevant": false,
+          "code_excerpt": "#!/usr/bin/env python # 556D_fug.py - Codeforces.com 556D Fug quiz # # Copyright (C) 2015 Sergey # Licensed under the Apache License, Version 2.0 (the \"License\"); # you may not use this file except in compliance with the License. # You may obtain a copy of the License at # http:/"
+        },
+        {
+          "document_id": "d8109",
+          "dense_rank": 6,
+          "bm25_rank": 121,
+          "dense_score": 0.5864516496658325,
+          "bm25_score": 23.026115609330258,
+          "reranker_score": 0.2948914358005223,
+          "final_rank": 6,
+          "relevant": true,
+          "code_excerpt": "a = [ 4, 22, 27, 58, 85, 94, 121, 166, 202, 265, 274, 319, 346, 355, 378, 382, 391, 438, 454, 483, 517, 526, 535, 562, 576, 588, 627, 634, 636, 645] print(a[int(input()) - 1])"
+        },
+        {
+          "document_id": "d8477",
+          "dense_rank": 7,
+          "bm25_rank": 136,
+          "dense_score": 0.58403480052948,
+          "bm25_score": 22.209688259636394,
+          "reranker_score": 0.2890166491922704,
+          "final_rank": 7,
+          "relevant": false,
+          "code_excerpt": "a = int(input()) b = int(input()) c = 1+2+3 print((c - (a+b)))"
+        },
+        {
+          "document_id": "d5088",
+          "dense_rank": 33,
+          "bm25_rank": 76,
+          "dense_score": 0.5505544543266296,
+          "bm25_score": 25.756024655436654,
+          "reranker_score": 0.28086464554096163,
+          "final_rank": 8,
+          "relevant": false,
+          "code_excerpt": "import sys arr = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] a, b = list(map(int, input().split())) a -= 1 b -= 1 ctr = 1 for i in range(arr[a] - 1): b += 1 if (b == 7): b = 0 ctr += 1 print(ctr)"
+        },
+        {
+          "document_id": "d6723",
+          "dense_rank": 36,
+          "bm25_rank": 73,
+          "dense_score": 0.5471660494804382,
+          "bm25_score": 26.098522439314166,
+          "reranker_score": 0.28054078094129586,
+          "final_rank": 9,
+          "relevant": false,
+          "code_excerpt": "n = int(input()) a = [0] * 27 for i in range(n): s = input() a[ord(s[0]) - ord('a')] += 1 ans = 0 for i in range(26): t = a[i] // 2 k = a[i] - t ans += t * (t - 1) // 2 ans += k * (k - 1) // 2 print(ans)"
+        },
+        {
+          "document_id": "d7947",
+          "dense_rank": 47,
+          "bm25_rank": 164,
+          "dense_score": 0.5418983697891235,
+          "bm25_score": 21.22196987377485,
+          "reranker_score": 0.2738042059812953,
+          "final_rank": 10,
+          "relevant": false,
+          "code_excerpt": "n = int(input()) a = 1 while n % a == 0: a *= 3 print((n - 1) // a + 1)"
+        }
+      ],
+      "example_candidate_features": null,
+      "example_relevant_candidate_details": null
+    },
+    {
+      "query_id": "q7840",
+      "query": "In mathematics, a subsequence is a sequence that can be derived from another sequence by deleting some elements without changing the order of the remaining elements. For example, the sequence BDF is a subsequence of ABCDEF. A substring of a string is a continuous subsequence of the string. For example, BCD is a substring of ABCDEF.\n\nYou are given two strings s_1, s_2 and another string called virus. Your task is to find the longest common subsequence of s_1 and s_2, such that it doesn't contain virus as a substring.\n\n\n-----Input-----\n\nThe input contains three strings in three separate lines: s_1, s_2 and virus (1 ≤ |s_1|, |s_2|, |virus| ≤ 100). Each string consists only of uppercase English letters.\n\n\n-----Output-----\n\nOutput the longest common subsequence of s_1 and s_2 without virus as a substring. If there are multiple answers, any of them will be accepted. \n\nIf there is no valid common subsequence, output 0.\n\n\n-----Examples-----\nInput\nAJKEQSLOBSROFGZ\nOVGURWZLWVLUXTH\nOZ\n\nOutput\nORZ\n\nInput\nAA\nA\nA\n\nOutput\n0",
+      "behavior_vs_dense_for_relevant_candidate": "little_difference",
+      "example_relevant_document_id": null,
+      "reranked_top_candidates": [
+        {
+          "document_id": "d1639",
+          "dense_rank": 4,
+          "bm25_rank": 1,
+          "dense_score": 0.4927089512348175,
+          "bm25_score": 258.63716332306075,
+          "reranker_score": 0.5334537025447746,
+          "final_rank": 1,
+          "relevant": false,
+          "code_excerpt": "''' Write a function that returns the longest contiguous palindromic substring in s. In the event that there are multiple longest palindromic substrings, return the first to occur. ''' def longest_palindrome(s, sep=\" \"): # Interpolate some inert character between input characters"
+        },
+        {
+          "document_id": "d163",
+          "dense_rank": 1,
+          "bm25_rank": 130,
+          "dense_score": 0.539077639579773,
+          "bm25_score": 142.5750600852106,
+          "reranker_score": 0.39169382943440806,
+          "final_rank": 2,
+          "relevant": false,
+          "code_excerpt": "class Solution: def longestCommonSubsequence(self, a: str, b: str) -> int: last, current = [0] * (len(b) + 1), [0] * (len(b) + 1) for i in range(len(a) - 1, -1, -1): for j in range(len(b) - 1, -1, -1): if a[i] == b[j]: current[j] = 1 + last[j + 1] else: current[j] = max(last[j], "
+        },
+        {
+          "document_id": "d3316",
+          "dense_rank": null,
+          "bm25_rank": 2,
+          "dense_score": null,
+          "bm25_score": 236.72789434674658,
+          "reranker_score": 0.28412267332175273,
+          "final_rank": 3,
+          "relevant": false,
+          "code_excerpt": "\"\"\"Strongest even number in an interval kata Defines strongest_even(n, m) which returns the strongest even number in the set of integers on the interval [n, m]. Constraints: 1. 1 <= n < m < MAX_INT Note: 1. The evenness of zero is need not be defined given the constraints. 2. In "
+        },
+        {
+          "document_id": "d618",
+          "dense_rank": 27,
+          "bm25_rank": 26,
+          "dense_score": 0.4227639436721802,
+          "bm25_score": 192.75115384344247,
+          "reranker_score": 0.28107018440242293,
+          "final_rank": 4,
+          "relevant": false,
+          "code_excerpt": "def CeilIndex(A, l, r, key): while (r - l > 1): m = l + (r - l)//2 if (A[m] >= key): r = m else: l = m return r def LongestIncreasingSubsequenceLength(A, size): # Add boundary case, # when array size is one tailTable = [0 for i in range(size + 1)] len = 0 # always points empty sl"
+        },
+        {
+          "document_id": "d2104",
+          "dense_rank": null,
+          "bm25_rank": 15,
+          "dense_score": null,
+          "bm25_score": 210.1795232520272,
+          "reranker_score": 0.2544510330141206,
+          "final_rank": 5,
+          "relevant": false,
+          "code_excerpt": "#!/usr/bin/env python # 556D_fug.py - Codeforces.com 556D Fug quiz # # Copyright (C) 2015 Sergey # Licensed under the Apache License, Version 2.0 (the \"License\"); # you may not use this file except in compliance with the License. # You may obtain a copy of the License at # http:/"
+        },
+        {
+          "document_id": "d7270",
+          "dense_rank": 57,
+          "bm25_rank": 62,
+          "dense_score": 0.3979792892932892,
+          "bm25_score": 161.48910607991547,
+          "reranker_score": 0.2503511499208371,
+          "final_rank": 6,
+          "relevant": false,
+          "code_excerpt": "t=int(input()) no_of_chars = 256 # Function to find smallest window # containing all characters of 'pat' def findSubString(string, pat): len1 = len(string) len2 = len(pat) if len1 < len2: return 0 hash_pat = [0] * no_of_chars hash_str = [0] * no_of_chars for i in range(0, len2): "
+        },
+        {
+          "document_id": "d2058",
+          "dense_rank": 111,
+          "bm25_rank": 34,
+          "dense_score": 0.3763814866542816,
+          "bm25_score": 181.3385104477357,
+          "reranker_score": 0.24509831229834841,
+          "final_rank": 7,
+          "relevant": false,
+          "code_excerpt": "import sys #sys.stdin=open(\"data.txt\") input=sys.stdin.readline # so the ending sequence is b...ba...a # find length of ending sequence extra=0 need=0 for ch in input().strip(): if ch=='a': need=(need*2+1)%1000000007 else: extra=(extra+need)%1000000007 print(extra)"
+        },
+        {
+          "document_id": "d1778",
+          "dense_rank": null,
+          "bm25_rank": 22,
+          "dense_score": null,
+          "bm25_score": 199.56034930596212,
+          "reranker_score": 0.23774525828661383,
+          "final_rank": 8,
+          "relevant": false,
+          "code_excerpt": "''' Challenge Fun #20: Edge Detection https://www.codewars.com/kata/58bfa40c43fadb4edb0000b5/train/python For a rectangular image given in run-length encoding (RLE) as described below, return a RLE of the image processed by replacing each pixel by the maximum absolute value of th"
+        },
+        {
+          "document_id": "d6615",
+          "dense_rank": null,
+          "bm25_rank": 4,
+          "dense_score": null,
+          "bm25_score": 230.13960848409164,
+          "reranker_score": 0.23682308916377764,
+          "final_rank": 9,
+          "relevant": false,
+          "code_excerpt": "3 # Copyright (C) 2016 Sayutin Dmitry. # # This program is free software; you can redistribute it and/or # modify it under the terms of the GNU General Public License as # published by the Free Software Foundation; version 3 # # This program is distributed in the hope that it wil"
+        },
+        {
+          "document_id": "d1101",
+          "dense_rank": null,
+          "bm25_rank": 3,
+          "dense_score": null,
+          "bm25_score": 235.1633382102665,
+          "reranker_score": 0.23571515569847984,
+          "final_rank": 10,
+          "relevant": false,
+          "code_excerpt": "# cook your dish here \"\"\" Input: The first line of the input contains a single integer T denoting the number of test cases. The description of T test cases follows. The first line of each test case contains three space-separated integers p, q and r. The second line contains three"
+        }
+      ],
+      "example_candidate_features": null,
+      "example_relevant_candidate_details": null
+    },
+    {
+      "query_id": "q6011",
+      "query": "Bob loves everything sweet. His favorite chocolate bar consists of pieces, each piece may contain a nut. Bob wants to break the bar of chocolate into multiple pieces so that each part would contain exactly one nut and any break line goes between two adjacent pieces.\n\nYou are asked to calculate the number of ways he can do it. Two ways to break chocolate are considered distinct if one of them contains a break between some two adjacent pieces and the other one doesn't. \n\nPlease note, that if Bob doesn't make any breaks, all the bar will form one piece and it still has to have exactly one nut.\n\n\n-----Input-----\n\nThe first line of the input contains integer n (1 ≤ n ≤ 100) — the number of pieces in the chocolate bar.\n\nThe second line contains n integers a_{i} (0 ≤ a_{i} ≤ 1), where 0 represents a piece without the nut and 1 stands for a piece with the nut.\n\n\n-----Output-----\n\nPrint the number of ways to break the chocolate into multiple parts so that each part would contain exactly one nut.\n\n\n-----Examples-----\nInput\n3\n0 1 0\n\nOutput\n1\n\nInput\n5\n1 0 1 0 1\n\nOutput\n4\n\n\n\n-----Note-----\n\nIn the first sample there is exactly one nut, so the number of ways equals 1 — Bob shouldn't make any breaks.\n\nIn the second sample you can break the bar in four ways:\n\n10|10|1\n\n1|010|1\n\n10|1|01\n\n1|01|01",
+      "behavior_vs_dense_for_relevant_candidate": "little_difference",
+      "example_relevant_document_id": null,
+      "reranked_top_candidates": [
+        {
+          "document_id": "d7830",
+          "dense_rank": 1,
+          "bm25_rank": 52,
+          "dense_score": 0.6022907495498657,
+          "bm25_score": 285.57838276786157,
+          "reranker_score": 0.4286758328570631,
+          "final_rank": 1,
+          "relevant": false,
+          "code_excerpt": "def ii(): return int(input()) def mi(): return list(map(int, input().split())) def li(): return list(mi()) # B. The Fair Nut and Strings n, k = mi() s = input().strip() t = input().strip() ans = 0 jj = 0 for i in range(n): if s[i] == t[i]: ans += 1 jj = i + 1 else: break cur = 2 "
+        },
+        {
+          "document_id": "d2937",
+          "dense_rank": null,
+          "bm25_rank": 1,
+          "dense_score": null,
+          "bm25_score": 424.05680942209506,
+          "reranker_score": 0.3842549923195085,
+          "final_rank": 2,
+          "relevant": false,
+          "code_excerpt": "# First, I coded a straightforward solution. It would work, but because it had to loop over all # students, and for every student over each locker, it had to do n^2 iterations. With numbers under # 10k this proved no problem, however the test cases apparently tested bigger number"
+        },
+        {
+          "document_id": "d2104",
+          "dense_rank": null,
+          "bm25_rank": 4,
+          "dense_score": null,
+          "bm25_score": 383.17390503208475,
+          "reranker_score": 0.3221929291128089,
+          "final_rank": 3,
+          "relevant": false,
+          "code_excerpt": "#!/usr/bin/env python # 556D_fug.py - Codeforces.com 556D Fug quiz # # Copyright (C) 2015 Sergey # Licensed under the Apache License, Version 2.0 (the \"License\"); # you may not use this file except in compliance with the License. # You may obtain a copy of the License at # http:/"
+        },
+        {
+          "document_id": "d5148",
+          "dense_rank": 87,
+          "bm25_rank": 61,
+          "dense_score": 0.51128751039505,
+          "bm25_score": 269.26264706556,
+          "reranker_score": 0.2958929854125282,
+          "final_rank": 4,
+          "relevant": false,
+          "code_excerpt": "import sys #sys.stdin=open(\"data.txt\") input=sys.stdin.readline n,a,b=map(int,input().split()) if a<b: a,b=b,a if b==0: # 1 01 001 0001 ... is optimal, plus a long series of 0's print((n-1)*a) else: # pascal's triangle thing pascal=[[1]*20005] for i in range(20004): newrow=[1] fo"
+        },
+        {
+          "document_id": "d1101",
+          "dense_rank": null,
+          "bm25_rank": 2,
+          "dense_score": null,
+          "bm25_score": 406.038469595844,
+          "reranker_score": 0.28380449605095265,
+          "final_rank": 5,
+          "relevant": false,
+          "code_excerpt": "# cook your dish here \"\"\" Input: The first line of the input contains a single integer T denoting the number of test cases. The description of T test cases follows. The first line of each test case contains three space-separated integers p, q and r. The second line contains three"
+        },
+        {
+          "document_id": "d3745",
+          "dense_rank": null,
+          "bm25_rank": 3,
+          "dense_score": null,
+          "bm25_score": 401.25515125567415,
+          "reranker_score": 0.26156397970622886,
+          "final_rank": 6,
+          "relevant": false,
+          "code_excerpt": "def oddest(numbers): most_odd = 0 # The current most odd number in the list max_oddity = -1 # The current greatest oddity rate, starts at -1 so that even an even number can be the unique most odd is_unique = True # If the current most odd number is really the most, so if there is"
+        },
+        {
+          "document_id": "d6668",
+          "dense_rank": 20,
+          "bm25_rank": 96,
+          "dense_score": 0.5348178744316101,
+          "bm25_score": 231.74599931632602,
+          "reranker_score": 0.2585653101554667,
+          "final_rank": 7,
+          "relevant": false,
+          "code_excerpt": "import bisect; def getIntList(): return list(map(int, input().split())); def getTransIntList(n): first=getIntList(); m=len(first); result=[[0]*n for _ in range(m)]; for i in range(m): result[i][0]=first[i]; for j in range(1, n): curr=getIntList(); for i in range(m): result[i][j]="
+        },
+        {
+          "document_id": "d6163",
+          "dense_rank": 11,
+          "bm25_rank": 145,
+          "dense_score": 0.5413891077041626,
+          "bm25_score": 213.02068042293573,
+          "reranker_score": 0.2570029678031994,
+          "final_rank": 8,
+          "relevant": false,
+          "code_excerpt": "base=998244353; def power(x, y): if(y==0): return 1 t=power(x, y//2) t=(t*t)%base if(y%2): t=(t*x)%base return t; def inverse(x): return power(x, base-2) f=[1] iv=[1] for i in range(1, 5555): f.append((f[i-1]*i)%base) iv.append(inverse(f[i])) def C(n, k): return (f[n]*iv[k]*iv[n-"
+        },
+        {
+          "document_id": "d8612",
+          "dense_rank": 56,
+          "bm25_rank": 78,
+          "dense_score": 0.5194400548934937,
+          "bm25_score": 250.2499355142185,
+          "reranker_score": 0.25619203742054536,
+          "final_rank": 9,
+          "relevant": false,
+          "code_excerpt": "n=int(input()) a=[int(i) for i in input().split()] a.sort() count=0 def get_num(a): count=1 taishou = a.pop() while a!=[]: second=a.pop() if taishou==second: count+=1 else: a.append(second) break if count==1: return taishou,0 elif count==2 or count==3: return taishou,1 else: retu"
+        },
+        {
+          "document_id": "d6187",
+          "dense_rank": 28,
+          "bm25_rank": 92,
+          "dense_score": 0.531109631061554,
+          "bm25_score": 233.49637487601711,
+          "reranker_score": 0.25471782374655166,
+          "final_rank": 10,
+          "relevant": false,
+          "code_excerpt": "def test(x, i): i = list(i) ok = True for j in range(x): if (i[j] == j+1 or (i[j]&(j+1) != 0)): ok = False if ok: print(i) def comp(n): return 2**len(bin(n)[2:])-1-n n = int(input()) nn = n if (n%2 == 0): x = [] while (n != 0): #add n to comp(n) to the front of x for i in range(c"
+        }
+      ],
+      "example_candidate_features": null,
+      "example_relevant_candidate_details": null
+    },
+    {
+      "query_id": "q6509",
+      "query": "You want to arrange n integers a_1, a_2, ..., a_{n} in some order in a row. Let's define the value of an arrangement as the sum of differences between all pairs of adjacent integers.\n\nMore formally, let's denote some arrangement as a sequence of integers x_1, x_2, ..., x_{n}, where sequence x is a permutation of sequence a. The value of such an arrangement is (x_1 - x_2) + (x_2 - x_3) + ... + (x_{n} - 1 - x_{n}).\n\nFind the largest possible value of an arrangement. Then, output the lexicographically smallest sequence x that corresponds to an arrangement of the largest possible value.\n\n\n-----Input-----\n\nThe first line of the input contains integer n (2 ≤ n ≤ 100). The second line contains n space-separated integers a_1, a_2, ..., a_{n} (|a_{i}| ≤ 1000).\n\n\n-----Output-----\n\nPrint the required sequence x_1, x_2, ..., x_{n}. Sequence x should be the lexicographically smallest permutation of a that corresponds to an arrangement of the largest possible value.\n\n\n-----Examples-----\nInput\n5\n100 -100 50 0 -50\n\nOutput\n100 -50 0 50 -100 \n\n\n\n-----Note-----\n\nIn the sample test case, the value of the output arrangement is (100 - ( - 50)) + (( - 50) - 0) + (0 - 50) + (50 - ( - 100)) = 200. No other arrangement has a larger value, and among all arrangements with the value of 200, the output arrangement is the lexicographically smallest one.\n\nSequence x_1, x_2, ... , x_{p} is lexicographically smaller than sequence y_1, y_2, ... , y_{p} if there exists an integer r (0 ≤ r < p) such that x_1 = y_1, x_2 = y_2, ... , x_{r} = y_{r} and x_{r} + 1 < y_{r} + 1.",
+      "behavior_vs_dense_for_relevant_candidate": "little_difference",
+      "example_relevant_document_id": null,
+      "reranked_top_candidates": [
+        {
+          "document_id": "d4331",
+          "dense_rank": null,
+          "bm25_rank": 1,
+          "dense_score": null,
+          "bm25_score": 480.91087647801385,
+          "reranker_score": 0.35253498969759667,
+          "final_rank": 1,
+          "relevant": false,
+          "code_excerpt": "def shortest_arrang(n): # For odd n, we can always construct n with 2 consecutive integers. if n % 2 == 1: return [n//2 + 1, n//2] # For even n, n is the sum of either an odd number or even number of # consecutive positive integers. Moreover, this property is exclusive. for i in "
+        },
+        {
+          "document_id": "d6803",
+          "dense_rank": 1,
+          "bm25_rank": null,
+          "dense_score": 0.6659243702888489,
+          "bm25_score": 0.0,
+          "reranker_score": 0.31682049024050335,
+          "final_rank": 2,
+          "relevant": false,
+          "code_excerpt": "q = 10001 n, a = int(input()), list(map(int, input().split())) a.sort() for i in range(40000 // (n - 1) + 1): b = [a[j] - j * i for j in range(n)] u, v = max(b), min(b) p = (u - v + 1) // 2 if p < q: q, s, d = p, v + p, i print(q) print(s, d)"
+        },
+        {
+          "document_id": "d6418",
+          "dense_rank": 128,
+          "bm25_rank": 58,
+          "dense_score": 0.5797663927078247,
+          "bm25_score": 300.81002709619526,
+          "reranker_score": 0.3100177982631718,
+          "final_rank": 3,
+          "relevant": false,
+          "code_excerpt": "''' // There are n! / (i+1)! * i permutations with decreasing seq length i (i+1 changes) for i <= n! // There are n! / (i+1)! permutations for each 1 <= j <= i of position of moved one // All nonempty things + n*n! * (n*n! + 1) / 2 // Subtract off everything inside one of them - "
+        },
+        {
+          "document_id": "d1101",
+          "dense_rank": null,
+          "bm25_rank": 2,
+          "dense_score": null,
+          "bm25_score": 446.53263001402263,
+          "reranker_score": 0.2918505902198571,
+          "final_rank": 4,
+          "relevant": false,
+          "code_excerpt": "# cook your dish here \"\"\" Input: The first line of the input contains a single integer T denoting the number of test cases. The description of T test cases follows. The first line of each test case contains three space-separated integers p, q and r. The second line contains three"
+        },
+        {
+          "document_id": "d1185",
+          "dense_rank": 8,
+          "bm25_rank": 170,
+          "dense_score": 0.6354367733001709,
+          "bm25_score": 240.82979817945758,
+          "reranker_score": 0.2731953056156854,
+          "final_rank": 5,
+          "relevant": false,
+          "code_excerpt": "from itertools import permutations C = list(permutations(['A','B','C','D'])) V = list(permutations([3,6,9,12])) P = list(permutations([25,50,75,100])) R = [] def test(): d = {} n = int(input()) for i in C[0]: for j in V[0]: d[i+str(j)] = 0 for i in range(n): x,y = input().split()"
+        },
+        {
+          "document_id": "d2104",
+          "dense_rank": null,
+          "bm25_rank": 10,
+          "dense_score": null,
+          "bm25_score": 381.1688529251359,
+          "reranker_score": 0.27000730924358185,
+          "final_rank": 6,
+          "relevant": false,
+          "code_excerpt": "#!/usr/bin/env python # 556D_fug.py - Codeforces.com 556D Fug quiz # # Copyright (C) 2015 Sergey # Licensed under the Apache License, Version 2.0 (the \"License\"); # you may not use this file except in compliance with the License. # You may obtain a copy of the License at # http:/"
+        },
+        {
+          "document_id": "d1690",
+          "dense_rank": null,
+          "bm25_rank": 12,
+          "dense_score": null,
+          "bm25_score": 366.9982458429346,
+          "reranker_score": 0.2644832652560828,
+          "final_rank": 7,
+          "relevant": false,
+          "code_excerpt": "# import all important libraries and inbuilt functions from fractions import Fraction import numpy as np import sys,bisect,copyreg,copy,statistics,os from math import * from collections import Counter,defaultdict,deque,OrderedDict from itertools import combinations,permutations,a"
+        },
+        {
+          "document_id": "d3316",
+          "dense_rank": null,
+          "bm25_rank": 3,
+          "dense_score": null,
+          "bm25_score": 439.5007601988019,
+          "reranker_score": 0.25586248271649426,
+          "final_rank": 8,
+          "relevant": false,
+          "code_excerpt": "\"\"\"Strongest even number in an interval kata Defines strongest_even(n, m) which returns the strongest even number in the set of integers on the interval [n, m]. Constraints: 1. 1 <= n < m < MAX_INT Note: 1. The evenness of zero is need not be defined given the constraints. 2. In "
+        },
+        {
+          "document_id": "d6381",
+          "dense_rank": 2,
+          "bm25_rank": null,
+          "dense_score": 0.6578108668327332,
+          "bm25_score": 0.0,
+          "reranker_score": 0.24510909887464188,
+          "final_rank": 9,
+          "relevant": false,
+          "code_excerpt": "n,k=map(int,input().split()) a=list(map(int,input().split())) p=1000 first=1 for i in range(n): if a[i]>k*i: now=0 f=a[i]-k*i for j in range(i): if a[j]!=f+k*j: now+=1 for j in range(i+1,n): if a[j]!=f+j*k: now+=1 if now<p: p=now first=f print(p) for i in range(n): if a[i]!=first"
+        },
+        {
+          "document_id": "d2937",
+          "dense_rank": null,
+          "bm25_rank": 4,
+          "dense_score": null,
+          "bm25_score": 437.0703181051191,
+          "reranker_score": 0.24476870843040513,
+          "final_rank": 10,
+          "relevant": false,
+          "code_excerpt": "# First, I coded a straightforward solution. It would work, but because it had to loop over all # students, and for every student over each locker, it had to do n^2 iterations. With numbers under # 10k this proved no problem, however the test cases apparently tested bigger number"
+        }
+      ],
+      "example_candidate_features": null,
+      "example_relevant_candidate_details": null
+    },
+    {
+      "query_id": "q7350",
+      "query": "On the well-known testing system MathForces, a draw of $n$ rating units is arranged. The rating will be distributed according to the following algorithm: if $k$ participants take part in this event, then the $n$ rating is evenly distributed between them and rounded to the nearest lower integer, At the end of the drawing, an unused rating may remain — it is not given to any of the participants.\n\nFor example, if $n = 5$ and $k = 3$, then each participant will recieve an $1$ rating unit, and also $2$ rating units will remain unused. If $n = 5$, and $k = 6$, then none of the participants will increase their rating.\n\nVasya participates in this rating draw but does not have information on the total number of participants in this event. Therefore, he wants to know what different values of the rating increment are possible to get as a result of this draw and asks you for help.\n\nFor example, if $n=5$, then the answer is equal to the sequence $0, 1, 2, 5$. Each of the sequence values (and only them) can be obtained as $\\lfloor n/k \\rfloor$ for some positive integer $k$ (where $\\lfloor x \\rfloor$ is the value of $x$ rounded down): $0 = \\lfloor 5/7 \\rfloor$, $1 = \\lfloor 5/5 \\rfloor$, $2 = \\lfloor 5/2 \\rfloor$, $5 = \\lfloor 5/1 \\rfloor$.\n\nWrite a program that, for a given $n$, finds a sequence of all possible rating increments.\n\n\n-----Input-----\n\nThe first line contains integer number $t$ ($1 \\le t \\le 10$) — the number of test cases in the input. Then $t$ test cases follow.\n\nEach line contains an integer $n$ ($1 \\le n \\le 10^9$) — the total number of the rating units being drawn.\n\n\n-----Output-----\n\nOutput the answers for each of $t$ test cases. Each answer should be contained in two lines.\n\nIn the first line print a single integer $m$ — the number of different rating increment values that Vasya can get.\n\nIn the following line print $m$ integers in ascending order — the values of possible rating increments.\n\n\n-----Example-----\nInput\n4\n5\n11\n1\n3\n\nOutput\n4\n0 1 2 5 \n6\n0 1 2 3 5 11 \n2\n0 1 \n3\n0 1 3",
+      "behavior_vs_dense_for_relevant_candidate": "little_difference",
+      "example_relevant_document_id": null,
+      "reranked_top_candidates": [
+        {
+          "document_id": "d1640",
+          "dense_rank": 110,
+          "bm25_rank": 2,
+          "dense_score": 0.36497068405151367,
+          "bm25_score": 599.4117722228555,
+          "reranker_score": 0.38979134448936836,
+          "final_rank": 1,
+          "relevant": false,
+          "code_excerpt": "import math def gta(limit, *args): return sum_up(limit, make_pattern(limit, *args)) def binomial_coeff(n, k): \"\"\"N choose K\"\"\" return math.factorial(n) / math.factorial(n-k) def sum_up(limit, items): \"\"\" Basic Idea: The number of cominations is simply N choose K. We calcuate this"
+        },
+        {
+          "document_id": "d2937",
+          "dense_rank": null,
+          "bm25_rank": 1,
+          "dense_score": null,
+          "bm25_score": 655.2959709601897,
+          "reranker_score": 0.3626440276046575,
+          "final_rank": 2,
+          "relevant": false,
+          "code_excerpt": "# First, I coded a straightforward solution. It would work, but because it had to loop over all # students, and for every student over each locker, it had to do n^2 iterations. With numbers under # 10k this proved no problem, however the test cases apparently tested bigger number"
+        },
+        {
+          "document_id": "d135",
+          "dense_rank": 15,
+          "bm25_rank": 11,
+          "dense_score": 0.42064327001571655,
+          "bm25_score": 528.2805537945948,
+          "reranker_score": 0.32536428648832344,
+          "final_rank": 3,
+          "relevant": false,
+          "code_excerpt": "class Solution: def numDupDigitsAtMostN(self, N: int) -> int: # N -> total numbers less than or equal to N # We will calculate the integers with all different digits (which are less than/equal to N) # Then the answer would be: N - nums_with_different_digits # Calculate the number"
+        },
+        {
+          "document_id": "d7352",
+          "dense_rank": 1,
+          "bm25_rank": null,
+          "dense_score": 0.47436243295669556,
+          "bm25_score": 0.0,
+          "reranker_score": 0.3118060290726207,
+          "final_rank": 4,
+          "relevant": false,
+          "code_excerpt": "def vasya_and_array(): n,k,leng = [int(x) for x in input().split()] if(leng==1): return 0 a = [int(x) for x in input().split()] mod = 998244353 a.insert(0,0) dp = [[0 for x in range((k+1))] for y in range(n+1)] sumdp = [0 for _ in range(n+1)] sumdp[0]=1 count = [0 for _ in range("
+        },
+        {
+          "document_id": "d2104",
+          "dense_rank": null,
+          "bm25_rank": 5,
+          "dense_score": null,
+          "bm25_score": 591.9949331047752,
+          "reranker_score": 0.29584112101638427,
+          "final_rank": 5,
+          "relevant": false,
+          "code_excerpt": "#!/usr/bin/env python # 556D_fug.py - Codeforces.com 556D Fug quiz # # Copyright (C) 2015 Sergey # Licensed under the Apache License, Version 2.0 (the \"License\"); # you may not use this file except in compliance with the License. # You may obtain a copy of the License at # http:/"
+        },
+        {
+          "document_id": "d6178",
+          "dense_rank": 120,
+          "bm25_rank": 30,
+          "dense_score": 0.3625093102455139,
+          "bm25_score": 451.7338600435674,
+          "reranker_score": 0.290400036252158,
+          "final_rank": 6,
+          "relevant": false,
+          "code_excerpt": "import numpy as np from sys import stdin ''' Reference: https://codeforces.com/blog/entry/75046#comment-591494 (1-based index) (0-based index) For a sequence A[l]..A[k]..A[r] with sum S contributes l * (N - r) to answer. 0, 1, 2, ..., l....k....r, ..., N - 2, N - 1 x x x x x v v "
+        },
+        {
+          "document_id": "d666",
+          "dense_rank": 4,
+          "bm25_rank": 72,
+          "dense_score": 0.4579797387123108,
+          "bm25_score": 383.5117517999753,
+          "reranker_score": 0.28525376292955423,
+          "final_rank": 7,
+          "relevant": false,
+          "code_excerpt": "# cook your dish here t=int(input()) for _ in range(t): n,m=list(map(int,input().split())) r=list(map(int,input().split())) rating=[[r[i]]*(m) for i in range(n)] ranking=[[0]*m for i in range(n)] for i in range(n): diff=list(map(int,input().split())) for j in range(m): rating[i]["
+        },
+        {
+          "document_id": "d444",
+          "dense_rank": 3,
+          "bm25_rank": 101,
+          "dense_score": 0.46058207750320435,
+          "bm25_score": 341.74933021596735,
+          "reranker_score": 0.27743737125861867,
+          "final_rank": 8,
+          "relevant": false,
+          "code_excerpt": "class Solution: def increment_index(self, nums, index): index += 1 while index < len(nums): nums[index] += 1 index += (index & -index) def prefix_sum(self, nums, index): index += 1 current_sum = 0 while index > 0: current_sum += nums[index] index -= (index & -index) return curren"
+        },
+        {
+          "document_id": "d476",
+          "dense_rank": 58,
+          "bm25_rank": 68,
+          "dense_score": 0.38335198163986206,
+          "bm25_score": 385.4339391380657,
+          "reranker_score": 0.25945899668075995,
+          "final_rank": 9,
+          "relevant": false,
+          "code_excerpt": "class Solution: def rangeSum(self, nums: List[int], n: int, left: int, right: int) -> int: # B: partial sum of A # C: partial sum of B # Use prefix sum to precompute B and C A = nums B, C = [0] * (n + 1), [0] * (n + 1) for i in range(n): B[i + 1] = B[i] + A[i] C[i + 1] = C[i] + B"
+        },
+        {
+          "document_id": "d3316",
+          "dense_rank": null,
+          "bm25_rank": 3,
+          "dense_score": null,
+          "bm25_score": 597.8420326307792,
+          "reranker_score": 0.2568588027218673,
+          "final_rank": 10,
+          "relevant": false,
+          "code_excerpt": "\"\"\"Strongest even number in an interval kata Defines strongest_even(n, m) which returns the strongest even number in the set of integers on the interval [n, m]. Constraints: 1. 1 <= n < m < MAX_INT Note: 1. The evenness of zero is need not be defined given the constraints. 2. In "
+        }
+      ],
+      "example_candidate_features": null,
+      "example_relevant_candidate_details": null
+    },
+    {
+      "query_id": "q8145",
+      "query": "You work as a system administrator in a dormitory, which has $n$ rooms one after another along a straight hallway. Rooms are numbered from $1$ to $n$.\n\nYou have to connect all $n$ rooms to the Internet.\n\nYou can connect each room to the Internet directly, the cost of such connection for the $i$-th room is $i$ coins. \n\nSome rooms also have a spot for a router. The cost of placing a router in the $i$-th room is also $i$ coins. You cannot place a router in a room which does not have a spot for it. When you place a router in the room $i$, you connect all rooms with the numbers from $max(1,~i - k)$ to $min(n,~i + k)$ inclusive to the Internet, where $k$ is the range of router. The value of $k$ is the same for all routers. \n\nCalculate the minimum total cost of connecting all $n$ rooms to the Internet. You can assume that the number of rooms which have a spot for a router is not greater than the number of routers you have.\n\n\n-----Input-----\n\nThe first line of the input contains two integers $n$ and $k$ ($1 \\le n, k \\le 2 \\cdot 10^5$) — the number of rooms and the range of each router.\n\nThe second line of the input contains one string $s$ of length $n$, consisting only of zeros and ones. If the $i$-th character of the string equals to '1' then there is a spot for a router in the $i$-th room. If the $i$-th character of the string equals to '0' then you cannot place a router in the $i$-th room.\n\n\n-----Output-----\n\nPrint one integer — the minimum total cost of connecting all $n$ rooms to the Internet.\n\n\n-----Examples-----\nInput\n5 2\n00100\n\nOutput\n3\n\nInput\n6 1\n000000\n\nOutput\n21\n\nInput\n4 1\n0011\n\nOutput\n4\n\nInput\n12 6\n000010000100\n\nOutput\n15\n\n\n\n-----Note-----\n\nIn the first example it is enough to place the router in the room $3$, then all rooms will be connected to the Internet. The total cost of connection is $3$.\n\nIn the second example you can place routers nowhere, so you need to connect all rooms directly. Thus, the total cost of connection of all rooms is $1 + 2 + 3 + 4 + 5 + 6 = 21$.\n\nIn the third example you need to connect the room $1$ directly and place the router in the room $3$. Thus, the total cost of connection of all rooms is $1 + 3 = 4$.\n\nIn the fourth example you need to place routers in rooms $5$ and $10$. Then all rooms will be connected to the Internet. The total cost of connection is $5 + 10 = 15$.",
+      "behavior_vs_dense_for_relevant_candidate": "little_difference",
+      "example_relevant_document_id": null,
+      "reranked_top_candidates": [
+        {
+          "document_id": "d1640",
+          "dense_rank": null,
+          "bm25_rank": 1,
+          "dense_score": null,
+          "bm25_score": 894.6335591126175,
+          "reranker_score": 0.3853392467568521,
+          "final_rank": 1,
+          "relevant": false,
+          "code_excerpt": "import math def gta(limit, *args): return sum_up(limit, make_pattern(limit, *args)) def binomial_coeff(n, k): \"\"\"N choose K\"\"\" return math.factorial(n) / math.factorial(n-k) def sum_up(limit, items): \"\"\" Basic Idea: The number of cominations is simply N choose K. We calcuate this"
+        },
+        {
+          "document_id": "d6065",
+          "dense_rank": 1,
+          "bm25_rank": null,
+          "dense_score": 0.537303626537323,
+          "bm25_score": 0.0,
+          "reranker_score": 0.3175707098465311,
+          "final_rank": 2,
+          "relevant": false,
+          "code_excerpt": "import sys from math import ceil n, m, k = list(map(int, sys.stdin.readline().split())) places = [True for _ in range(n)] for x in map(int, sys.stdin.readline().split()): places[x] = False costs = list(map(int, sys.stdin.readline().split())) if not places[0]: print(-1) return pre"
+        },
+        {
+          "document_id": "d5143",
+          "dense_rank": 190,
+          "bm25_rank": 9,
+          "dense_score": 0.3371014893054962,
+          "bm25_score": 757.6648740511667,
+          "reranker_score": 0.303145896485054,
+          "final_rank": 3,
+          "relevant": false,
+          "code_excerpt": "3 # Copyright (C) 2017 Sayutin Dmitry. # # This program is free software; you can redistribute it and/or # modify it under the terms of the GNU General Public License as # published by the Free Software Foundation; version 3 # # This program is distributed in the hope that it wil"
+        },
+        {
+          "document_id": "d1227",
+          "dense_rank": 187,
+          "bm25_rank": 33,
+          "dense_score": 0.33762264251708984,
+          "bm25_score": 637.0101875549855,
+          "reranker_score": 0.29501274925880716,
+          "final_rank": 4,
+          "relevant": false,
+          "code_excerpt": "from collections import defaultdict from itertools import product def solve(mouse,n,m): # shadow matrix will contains the count of mice which affect (i,j) position # if there is a mice at position (i,j) then in shadow matrix it will affect all four adjacent blocks shadow=[[0 for "
+        },
+        {
+          "document_id": "d2937",
+          "dense_rank": null,
+          "bm25_rank": 2,
+          "dense_score": null,
+          "bm25_score": 840.2516098474132,
+          "reranker_score": 0.28295712541601337,
+          "final_rank": 5,
+          "relevant": false,
+          "code_excerpt": "# First, I coded a straightforward solution. It would work, but because it had to loop over all # students, and for every student over each locker, it had to do n^2 iterations. With numbers under # 10k this proved no problem, however the test cases apparently tested bigger number"
+        },
+        {
+          "document_id": "d3316",
+          "dense_rank": null,
+          "bm25_rank": 3,
+          "dense_score": null,
+          "bm25_score": 816.0999394017026,
+          "reranker_score": 0.26457643917113244,
+          "final_rank": 6,
+          "relevant": false,
+          "code_excerpt": "\"\"\"Strongest even number in an interval kata Defines strongest_even(n, m) which returns the strongest even number in the set of integers on the interval [n, m]. Constraints: 1. 1 <= n < m < MAX_INT Note: 1. The evenness of zero is need not be defined given the constraints. 2. In "
+        },
+        {
+          "document_id": "d2104",
+          "dense_rank": null,
+          "bm25_rank": 12,
+          "dense_score": null,
+          "bm25_score": 740.6121457341421,
+          "reranker_score": 0.2637490372708185,
+          "final_rank": 7,
+          "relevant": false,
+          "code_excerpt": "#!/usr/bin/env python # 556D_fug.py - Codeforces.com 556D Fug quiz # # Copyright (C) 2015 Sergey # Licensed under the Apache License, Version 2.0 (the \"License\"); # you may not use this file except in compliance with the License. # You may obtain a copy of the License at # http:/"
+        },
+        {
+          "document_id": "d7155",
+          "dense_rank": 109,
+          "bm25_rank": 29,
+          "dense_score": 0.3630868196487427,
+          "bm25_score": 650.0645789759736,
+          "reranker_score": 0.25709426805792673,
+          "final_rank": 8,
+          "relevant": false,
+          "code_excerpt": "from heapq import * N = int(input()) price = [int(i) for i in input().split()] total = 0 inf = (10**6) + 1 h = [inf] #Assume we bought and sold optimally for the first k prices. #We adjust our answer for the (k+1)th price that comes up. for p in price: if p > h[0]: total += (p - "
+        },
+        {
+          "document_id": "d3745",
+          "dense_rank": null,
+          "bm25_rank": 5,
+          "dense_score": null,
+          "bm25_score": 805.012190762408,
+          "reranker_score": 0.25019156422404115,
+          "final_rank": 9,
+          "relevant": false,
+          "code_excerpt": "def oddest(numbers): most_odd = 0 # The current most odd number in the list max_oddity = -1 # The current greatest oddity rate, starts at -1 so that even an even number can be the unique most odd is_unique = True # If the current most odd number is really the most, so if there is"
+        },
+        {
+          "document_id": "d1330",
+          "dense_rank": 2,
+          "bm25_rank": null,
+          "dense_score": 0.5354800224304199,
+          "bm25_score": 0.0,
+          "reranker_score": 0.2446627220816562,
+          "final_rank": 10,
+          "relevant": false,
+          "code_excerpt": "T = int(input()) for t in range(T): n, m = list(map(int, input().split())) c = list(map(int, input().split())) dp1 = [1e9]*((1 << n)+1) for i in range(n): dp1[1 << i] = c[i] dp1[1 << (n-1)] = min(dp1[1 << (n-1)], sum(c)) for i in range(m): l = list(map(int, input().split())) cost"
+        }
+      ],
+      "example_candidate_features": null,
+      "example_relevant_candidate_details": null
+    },
+    {
+      "query_id": "q6057",
+      "query": "Hyakugoku has just retired from being the resident deity of the South Black Snail Temple in order to pursue her dream of becoming a cartoonist. She spent six months in that temple just playing \"Cat's Cradle\" so now she wants to try a different game — \"Snakes and Ladders\". Unfortunately, she already killed all the snakes, so there are only ladders left now. \n\nThe game is played on a $10 \\times 10$ board as follows:  At the beginning of the game, the player is at the bottom left square.  The objective of the game is for the player to reach the Goal (the top left square) by following the path and climbing vertical ladders. Once the player reaches the Goal, the game ends.  The path is as follows: if a square is not the end of its row, it leads to the square next to it along the direction of its row; if a square is the end of its row, it leads to the square above it. The direction of a row is determined as follows: the direction of the bottom row is to the right; the direction of any other row is opposite the direction of the row below it. See Notes section for visualization of path.  During each turn, the player rolls a standard six-sided dice. Suppose that the number shown on the dice is $r$. If the Goal is less than $r$ squares away on the path, the player doesn't move (but the turn is performed). Otherwise, the player advances exactly $r$ squares along the path and then stops. If the player stops on a square with the bottom of a ladder, the player chooses whether or not to climb up that ladder. If she chooses not to climb, then she stays in that square for the beginning of the next turn.  Some squares have a ladder in them. Ladders are only placed vertically — each one leads to the same square of some of the upper rows. In order for the player to climb up a ladder, after rolling the dice, she must stop at the square containing the bottom of the ladder. After using the ladder, the player will end up in the square containing the top of the ladder. She cannot leave the ladder in the middle of climbing. And if the square containing the top of the ladder also contains the bottom of another ladder, she is not allowed to use that second ladder.  The numbers on the faces of the dice are 1, 2, 3, 4, 5, and 6, with each number having the same probability of being shown. \n\nPlease note that:     it is possible for ladders to overlap, but the player cannot switch to the other ladder while in the middle of climbing the first one;     it is possible for ladders to go straight to the top row, but not any higher;     it is possible for two ladders to lead to the same tile;     it is possible for a ladder to lead to a tile that also has a ladder, but the player will not be able to use that second ladder if she uses the first one;     the player can only climb up ladders, not climb down. \n\nHyakugoku wants to finish the game as soon as possible. Thus, on each turn she chooses whether to climb the ladder or not optimally. Help her to determine the minimum expected number of turns the game will take.\n\n\n-----Input-----\n\nInput will consist of ten lines. The $i$-th line will contain 10 non-negative integers $h_{i1}, h_{i2}, \\dots, h_{i10}$. If $h_{ij}$ is $0$, then the tile at the $i$-th row and $j$-th column has no ladder. Otherwise, the ladder at that tile will have a height of $h_{ij}$, i.e. climbing it will lead to the tile $h_{ij}$ rows directly above. It is guaranteed that $0 \\leq h_{ij} < i$. Also, the first number of the first line and the first number of the last line always contain $0$, i.e. the Goal and the starting tile never have ladders.\n\n\n-----Output-----\n\nPrint only one line containing a single floating-point number — the minimum expected number of turns Hyakugoku can take to finish the game. Your answer will be considered correct if its absolute or relative error does not exceed $10^{-6}$.\n\n\n-----Examples-----\nInput\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n\nOutput\n33.0476190476\n\nInput\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 3 0 0 0 4 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 4 0 0 0\n0 0 3 0 0 0 0 0 0 0\n0 0 4 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 9\n\nOutput\n20.2591405923\n\nInput\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 6 6 6 6 6 6 0 0 0\n1 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n\nOutput\n15.9047592939\n\n\n\n-----Note-----\n\nA visualization of the path and the board from example 2 is as follows: [Image]\n\nThe tile with an 'S' is the starting tile and the tile with an 'E' is the Goal.\n\nFor the first example, there are no ladders.\n\nFor the second example, the board looks like the one in the right part of the image (the ladders have been colored for clarity).\n\nIt is possible for ladders to overlap, as is the case with the red and yellow ladders and green and blue ladders. It is also possible for ladders to go straight to the top, as is the case with the black and blue ladders. However, it is not possible for ladders to go any higher (outside of the board). It is also possible that two ladders lead to the same tile, as is the case with the red and yellow ladders. Also, notice that the red and yellow ladders lead to the tile with the orange ladder. So if the player chooses to climb either of the red and yellow ladders, they will not be able to climb the orange ladder. Finally, notice that the green ladder passes through the starting tile of the blue ladder. The player cannot transfer from the green ladder to the blue ladder while in the middle of climbing the green ladder.",
+      "behavior_vs_dense_for_relevant_candidate": "little_difference",
+      "example_relevant_document_id": null,
+      "reranked_top_candidates": [
+        {
+          "document_id": "d1729",
+          "dense_rank": 71,
+          "bm25_rank": 2,
+          "dense_score": 0.35489341616630554,
+          "bm25_score": 2706.031092719985,
+          "reranker_score": 0.400489176033616,
+          "final_rank": 1,
+          "relevant": false,
+          "code_excerpt": "class PlayerMovement: PREC = [8, 2, 4, 6] # Order of precedence I_KEYS = {8: 0, 2: 1, 4: 2, 6: 3} # Index of the keys in self.pressed MOVES = {8: (0,1), 2: (0,-1), 4: (-1,0), 6: (1,0)} # Moves directions def __init__(self, x, y): self.position = Tile(x, y) # Current position self"
+        },
+        {
+          "document_id": "d1227",
+          "dense_rank": 159,
+          "bm25_rank": 8,
+          "dense_score": 0.3207826614379883,
+          "bm25_score": 2524.3257765363137,
+          "reranker_score": 0.3398488358896669,
+          "final_rank": 2,
+          "relevant": false,
+          "code_excerpt": "from collections import defaultdict from itertools import product def solve(mouse,n,m): # shadow matrix will contains the count of mice which affect (i,j) position # if there is a mice at position (i,j) then in shadow matrix it will affect all four adjacent blocks shadow=[[0 for "
+        },
+        {
+          "document_id": "d1665",
+          "dense_rank": 6,
+          "bm25_rank": 60,
+          "dense_score": 0.43036818504333496,
+          "bm25_score": 1994.903916370362,
+          "reranker_score": 0.32815850164053045,
+          "final_rank": 3,
+          "relevant": false,
+          "code_excerpt": "from itertools import count ALL_MOVES = [(1,1), (0,1), ( 1,0), (-1,0), (0,-1), (-1,1), ( 1,-1), (-1,-1)] # Natural directions of moves for king or queen (one step) AMA_MOVES = [(1,2), (2,1), (-1,2), (2,-1), (1,-2), (-2,1), (-1,-2), (-2,-1)] # Knight moves for amazon queen def ama"
+        },
+        {
+          "document_id": "d1101",
+          "dense_rank": null,
+          "bm25_rank": 1,
+          "dense_score": null,
+          "bm25_score": 2764.6967350876553,
+          "reranker_score": 0.3236990803640433,
+          "final_rank": 4,
+          "relevant": false,
+          "code_excerpt": "# cook your dish here \"\"\" Input: The first line of the input contains a single integer T denoting the number of test cases. The description of T test cases follows. The first line of each test case contains three space-separated integers p, q and r. The second line contains three"
+        },
+        {
+          "document_id": "d1792",
+          "dense_rank": 16,
+          "bm25_rank": 37,
+          "dense_score": 0.3921576738357544,
+          "bm25_score": 2194.1778613375923,
+          "reranker_score": 0.3128119127701398,
+          "final_rank": 5,
+          "relevant": false,
+          "code_excerpt": "from collections import deque from numpy import cross, dot MOVES = ((1,0), (-1,0), (0,1), (0,-1)) DIRS = ( 'v', '^', '>', '<') def escape(maze): start = x,y = next( (x,y) for x,row in enumerate(maze) for y,c in enumerate(row) if c not in '# ' ) X, Y, dir = len(maze), len(maze[0])"
+        },
+        {
+          "document_id": "d6634",
+          "dense_rank": 1,
+          "bm25_rank": null,
+          "dense_score": 0.46285879611968994,
+          "bm25_score": 0.0,
+          "reranker_score": 0.30286214411402473,
+          "final_rank": 6,
+          "relevant": false,
+          "code_excerpt": "\"\"\" Codeforces Contest 288 Div 2 Problem A Author : chaotic_iak Language: Python 3.4.2 \"\"\" ################################################### SOLUTION def main(): n,m,k = read() board = [[0]*m for _ in range(n)] for i in range(k): x,y = read() x -= 1 y -= 1 board[x][y] = 1 if x "
+        },
+        {
+          "document_id": "d2469",
+          "dense_rank": 14,
+          "bm25_rank": 102,
+          "dense_score": 0.3936052918434143,
+          "bm25_score": 1834.2439406057704,
+          "reranker_score": 0.2764158610467012,
+          "final_rank": 7,
+          "relevant": false,
+          "code_excerpt": "class Solution: def tictactoe(self, moves: List[List[int]]) -> str: # player one and two moves player_a, player_b = moves[0::2], moves[1::2] # possible wins possible_wins = { 0: [[0, 0], [1, 1], [2, 2]], 1: [[0, 0], [1, 0], [2, 0]], 2: [[0, 1], [1, 1], [2, 1]], 3: [[0, 2], [1, 2]"
+        },
+        {
+          "document_id": "d629",
+          "dense_rank": 26,
+          "bm25_rank": 123,
+          "dense_score": 0.38624292612075806,
+          "bm25_score": 1739.5012939638336,
+          "reranker_score": 0.27141754639247173,
+          "final_rank": 8,
+          "relevant": false,
+          "code_excerpt": "t =int(input()) #no. of test cases while t>0: t=t-1 str=input() size=len(str) pos=str.find('W') left=pos right=size-pos-1 arr = [[0 for i in range(right+1)] for j in range(left+1)] #arr[i,j] = 1 if with i black cells on left and j on right 1st player can win, 0 otherwise. #Recurs"
+        },
+        {
+          "document_id": "d1778",
+          "dense_rank": null,
+          "bm25_rank": 6,
+          "dense_score": null,
+          "bm25_score": 2562.186831347062,
+          "reranker_score": 0.26498992383971565,
+          "final_rank": 9,
+          "relevant": false,
+          "code_excerpt": "''' Challenge Fun #20: Edge Detection https://www.codewars.com/kata/58bfa40c43fadb4edb0000b5/train/python For a rectangular image given in run-length encoding (RLE) as described below, return a RLE of the image processed by replacing each pixel by the maximum absolute value of th"
+        },
+        {
+          "document_id": "d5354",
+          "dense_rank": 58,
+          "bm25_rank": 74,
+          "dense_score": 0.3614965081214905,
+          "bm25_score": 1918.0276245314822,
+          "reranker_score": 0.2565318313951697,
+          "final_rank": 10,
+          "relevant": false,
+          "code_excerpt": "# You lost the game. n = int(input()) L = list(map(int, input().split())) if n == 1: if L[0] == 0: print(\"UP\") elif L[0] == 15: print(\"DOWN\") else: print(\"-1\") else: d = L[n-2] - L[n-1] if d < 0: if L[n-1] == 15: print(\"DOWN\") else: print(\"UP\") else: if L[n-1] == 0: print(\"UP\") e"
+        }
+      ],
+      "example_candidate_features": null,
+      "example_relevant_candidate_details": null
+    }
+  ]
+}

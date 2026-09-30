@@ -1,0 +1,33 @@
+# Python environments and bytecode
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local secrets and environment files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Generated model, dataset, and embedding caches
+/artifacts/huggingface/
+/artifacts/mteb_cache/
+/artifacts/experiments/cache/
+/artifacts/experiments/mteb/
+/.dist/
+*.tmp

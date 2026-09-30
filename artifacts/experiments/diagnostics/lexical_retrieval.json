@@ -1,0 +1,584 @@
+{
+  "dataset_task": "AppsRetrieval",
+  "dataset_revision": "f22508f96b7a36c2415181ed8bb76f76e04ae2d5",
+  "split": "test",
+  "diagnostic_selection": "five query statements spanning token-count quantiles",
+  "top_k_per_retriever": 5,
+  "queries": [
+    {
+      "query_id": "q8109",
+      "query_text": "-----Input-----\n\nThe input contains a single integer a (1 ≤ a ≤ 30).\n\n\n-----Output-----\n\nOutput a single integer.\n\n\n-----Example-----\nInput\n3\n\nOutput\n27",
+      "bm25": [
+        {
+          "rank": 1,
+          "document_id": "d1101",
+          "score": 65.47281272465038,
+          "relevant": false,
+          "code_excerpt": "# cook your dish here \"\"\" Input: The first line of the input contains a single integer T denoting the number of test cases. The description of T test cases follows. The first line of each test case contains three space-separated integers p, q and r. The second line contains three"
+        },
+        {
+          "rank": 2,
+          "document_id": "d1929",
+          "score": 46.38701715932786,
+          "relevant": false,
+          "code_excerpt": "# \"\"\" # This is the interface that allows for creating nested lists. # You should not implement it, or speculate about its implementation # \"\"\" #class NestedInteger: # def __init__(self, value=None): # \"\"\" # If value is not specified, initializes an empty list. # Otherwise initia"
+        },
+        {
+          "rank": 3,
+          "document_id": "d7410",
+          "score": 43.445867389194326,
+          "relevant": false,
+          "code_excerpt": "# # ------------------------------------------------ # ____ _ Generatered using # / ___| | | # | | __ _ __| | ___ _ __ ______ _ # | | / _` |/ _` |/ _ \\ '_ \\|_ / _` | # | |__| (_| | (_| | __/ | | |/ / (_| | # \\____\\____|\\____|\\___|_| |_/___\\____| # # GNU Affero General Public Lice"
+        },
+        {
+          "rank": 4,
+          "document_id": "d47",
+          "score": 42.92775848986259,
+          "relevant": false,
+          "code_excerpt": "# # ------------------------------------------------ # ____ _ Generatered using # / ___| | | # | | __ _ __| | ___ _ __ ______ _ # | | / _` |/ _` |/ _ \\ '_ \\|_ / _` | # | |__| (_| | (_| | __/ | | |/ / (_| | # \\____\\____|\\____|\\___|_| |_/___\\____| # # GNU Affero General Public Lice"
+        },
+        {
+          "rank": 5,
+          "document_id": "d6865",
+          "score": 42.14882149239738,
+          "relevant": false,
+          "code_excerpt": "#import sys #fin = open(\"input.txt\", 'r') #fout = open(\"output.txt\", 'w') #fin = open(\"input.txt\", 'r') #fout = open(\"output.txt\", 'w') n = int(input()) a = list(map(int, input().split())) if 1 not in a: print(1) else: print(-1)"
+        }
+      ],
+      "minilm": [
+        {
+          "rank": 1,
+          "document_id": "d8393",
+          "score": 0.6145450472831726,
+          "relevant": false,
+          "code_excerpt": "a = int(input()) ans = a + a**2 + a**3 print(ans)"
+        },
+        {
+          "rank": 2,
+          "document_id": "d7478",
+          "score": 0.6040010452270508,
+          "relevant": false,
+          "code_excerpt": "N, K = map(int, input().split()) A = list(map(int, input().split())) ans = [] c = 2**30 r = 2**30 while r: r //= 2 l = sum(-(-a//c)-1 for a in A) if l > K: c += r else: ans.append(c) c -= r print(ans and min(ans) or 1)"
+        },
+        {
+          "rank": 3,
+          "document_id": "d5440",
+          "score": 0.6023189425468445,
+          "relevant": false,
+          "code_excerpt": "n = int(input()) m = int(input()) print(m % (1 << n))"
+        },
+        {
+          "rank": 4,
+          "document_id": "d6806",
+          "score": 0.6011187434196472,
+          "relevant": false,
+          "code_excerpt": "t = int(input()) for i in range(t): a = int(input()) if a >= 4: print(a % 2) else: print(4 - a)"
+        },
+        {
+          "rank": 5,
+          "document_id": "d8623",
+          "score": 0.586685061454773,
+          "relevant": false,
+          "code_excerpt": "x=int(input()) ans=0 a=0 for i in range(1,x+1): a+=i ans+=1 if a>=x: print(ans) break"
+        }
+      ],
+      "hybrid": [
+        {
+          "rank": 1,
+          "document_id": "d7478",
+          "score": 0.023323276862381063,
+          "relevant": false,
+          "code_excerpt": "N, K = map(int, input().split()) A = list(map(int, input().split())) ans = [] c = 2**30 r = 2**30 while r: r //= 2 l = sum(-(-a//c)-1 for a in A) if l > K: c += r else: ans.append(c) c -= r print(ans and min(ans) or 1)"
+        },
+        {
+          "rank": 2,
+          "document_id": "d5088",
+          "score": 0.018105629348513598,
+          "relevant": false,
+          "code_excerpt": "import sys arr = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] a, b = list(map(int, input().split())) a -= 1 b -= 1 ctr = 1 for i in range(arr[a] - 1): b += 1 if (b == 7): b = 0 ctr += 1 print(ctr)"
+        },
+        {
+          "rank": 3,
+          "document_id": "d6723",
+          "score": 0.017935463659147867,
+          "relevant": false,
+          "code_excerpt": "n = int(input()) a = [0] * 27 for i in range(n): s = input() a[ord(s[0]) - ord('a')] += 1 ans = 0 for i in range(26): t = a[i] // 2 k = a[i] - t ans += t * (t - 1) // 2 ans += k * (k - 1) // 2 print(ans)"
+        },
+        {
+          "rank": 4,
+          "document_id": "d8393",
+          "score": 0.01639344262295082,
+          "relevant": false,
+          "code_excerpt": "a = int(input()) ans = a + a**2 + a**3 print(ans)"
+        },
+        {
+          "rank": 5,
+          "document_id": "d1101",
+          "score": 0.01639344262295082,
+          "relevant": false,
+          "code_excerpt": "# cook your dish here \"\"\" Input: The first line of the input contains a single integer T denoting the number of test cases. The description of T test cases follows. The first line of each test case contains three space-separated integers p, q and r. The second line contains three"
+        }
+      ]
+    },
+    {
+      "query_id": "q7018",
+      "query_text": "There is an infinite sequence consisting of all positive integers in the increasing order: p = {1, 2, 3, ...}. We performed n swap operations with this sequence. A swap(a, b) is an operation of swapping the elements of the sequence on positions a and b. Your task is to find the number of inversions in the resulting sequence, i.e. the number of such index pairs (i, j), that i < j and p_{i} > p_{j}.\n\n\n-----Input-----\n\nThe first line contains a single integer n (1 ≤ n ≤ 10^5) — the number of swap operations applied to the sequence.\n\nEach of the next n lines contains two integers a_{i} and b_{i} (1 ≤ a_{i}, b_{i} ≤ 10^9, a_{i} ≠ b_{i}) — the arguments of the swap operation.\n\n\n-----Output-----\n\nPrint a single integer — the number of inversions in the resulting sequence.\n\n\n-----Examples-----\nInput\n2\n4 2\n1 4\n\nOutput\n4\n\nInput\n3\n1 6\n3 4\n2 5\n\nOutput\n15\n\n\n\n-----Note-----\n\nIn the first sample the sequence is being modified as follows: $\\{1,2,3,4,5, \\ldots \\} \\rightarrow \\{1,4,3,2,5, \\ldots \\} \\rightarrow \\{2,4,3,1,5 \\ldots \\}$. It has 4 inversions formed by index pairs (1, 4), (2, 3), (2, 4) and (3, 4).",
+      "bm25": [
+        {
+          "rank": 1,
+          "document_id": "d2937",
+          "score": 440.5446650298534,
+          "relevant": false,
+          "code_excerpt": "# First, I coded a straightforward solution. It would work, but because it had to loop over all # students, and for every student over each locker, it had to do n^2 iterations. With numbers under # 10k this proved no problem, however the test cases apparently tested bigger number"
+        },
+        {
+          "rank": 2,
+          "document_id": "d4331",
+          "score": 420.67734903016947,
+          "relevant": false,
+          "code_excerpt": "def shortest_arrang(n): # For odd n, we can always construct n with 2 consecutive integers. if n % 2 == 1: return [n//2 + 1, n//2] # For even n, n is the sum of either an odd number or even number of # consecutive positive integers. Moreover, this property is exclusive. for i in "
+        },
+        {
+          "rank": 3,
+          "document_id": "d2154",
+          "score": 372.50575919146894,
+          "relevant": false,
+          "code_excerpt": "#!/usr/bin/env python3 from collections import defaultdict DEBUG = False def main(): if DEBUG: test() n = int(input()) paths = cycles(n) print(len(paths)) for p in paths: print('%d %s' % (len(p), ' '.join([str(v) for v in p]))) def cycles(n): \"\"\"Builds a set of cycles for a fully"
+        },
+        {
+          "rank": 4,
+          "document_id": "d2104",
+          "score": 371.37598619095434,
+          "relevant": false,
+          "code_excerpt": "#!/usr/bin/env python # 556D_fug.py - Codeforces.com 556D Fug quiz # # Copyright (C) 2015 Sergey # Licensed under the Apache License, Version 2.0 (the \"License\"); # you may not use this file except in compliance with the License. # You may obtain a copy of the License at # http:/"
+        },
+        {
+          "rank": 5,
+          "document_id": "d6178",
+          "score": 367.7843278534639,
+          "relevant": false,
+          "code_excerpt": "import numpy as np from sys import stdin ''' Reference: https://codeforces.com/blog/entry/75046#comment-591494 (1-based index) (0-based index) For a sequence A[l]..A[k]..A[r] with sum S contributes l * (N - r) to answer. 0, 1, 2, ..., l....k....r, ..., N - 2, N - 1 x x x x x v v "
+        }
+      ],
+      "minilm": [
+        {
+          "rank": 1,
+          "document_id": "d3076",
+          "score": 0.6309744119644165,
+          "relevant": false,
+          "code_excerpt": "def count_inversions(array): inv_count = 0 for i in range(len(array)): for j in range(i, len(array)): if array[i] > array[j]: inv_count += 1 return inv_count"
+        },
+        {
+          "rank": 2,
+          "document_id": "d6025",
+          "score": 0.5725506544113159,
+          "relevant": false,
+          "code_excerpt": "# Python3 program to count inversions using # Binary Indexed Tree # Returns sum of arr[0..index]. This function # assumes that the array is preprocessed and # partial sums of array elements are stored # in BITree[]. def getSum( BITree, index): sum = 0 # Initialize result # Traver"
+        },
+        {
+          "rank": 3,
+          "document_id": "d5701",
+          "score": 0.5719451904296875,
+          "relevant": false,
+          "code_excerpt": "3 import copy def rotate90(n, f): return [[f[n - j - 1][i] for j in range(n)] for i in range(n)] def fliphor(n, f): return [[f[i][n - j - 1] for j in range(n)] for i in range(n)] def flipver(n, f): return [[f[n - i - 1][j] for j in range(n)] for i in range(n)] def eq(n, f, g): fo"
+        },
+        {
+          "rank": 4,
+          "document_id": "d2392",
+          "score": 0.5638580322265625,
+          "relevant": false,
+          "code_excerpt": "t = int(input()) for _ in range(t): n = int(input()) l = list([int(x)- 1 for x in input().split()]) out = [] ll = [(l[i], i) for i in range(n)] ll.sort() swap = (-1,-1) for i in range(n - 1): if ll[i][0] == ll[i + 1][0]: swap = (ll[i][1],ll[i+1][1]) newl = [0]*n for i in range(n)"
+        },
+        {
+          "rank": 5,
+          "document_id": "d962",
+          "score": 0.5591639280319214,
+          "relevant": false,
+          "code_excerpt": "# cook your dish here def mergeSort(arr, n): # A temp_arr is created to store # sorted array in merge function temp_arr = [0]*n return _mergeSort(arr, temp_arr, 0, n-1) # This Function will use MergeSort to count inversions def _mergeSort(arr, temp_arr, left, right): # A variable"
+        }
+      ],
+      "hybrid": [
+        {
+          "rank": 1,
+          "document_id": "d962",
+          "score": 0.02728937728937729,
+          "relevant": false,
+          "code_excerpt": "# cook your dish here def mergeSort(arr, n): # A temp_arr is created to store # sorted array in merge function temp_arr = [0]*n return _mergeSort(arr, temp_arr, 0, n-1) # This Function will use MergeSort to count inversions def _mergeSort(arr, temp_arr, left, right): # A variable"
+        },
+        {
+          "rank": 2,
+          "document_id": "d6025",
+          "score": 0.026129032258064518,
+          "relevant": false,
+          "code_excerpt": "# Python3 program to count inversions using # Binary Indexed Tree # Returns sum of arr[0..index]. This function # assumes that the array is preprocessed and # partial sums of array elements are stored # in BITree[]. def getSum( BITree, index): sum = 0 # Initialize result # Traver"
+        },
+        {
+          "rank": 3,
+          "document_id": "d1357",
+          "score": 0.024691358024691357,
+          "relevant": false,
+          "code_excerpt": "t=[[1]] def bell_numbers(start, stop): ## Swap start and stop if start > stop if stop < start: start, stop = stop, start if start < 1: start = 1 if stop < 1: stop = 1 c = 1 ## Bell numbers count while c <= stop: if c >= start: yield t[-1][0] ## Yield the Bell number of the previo"
+        },
+        {
+          "rank": 4,
+          "document_id": "d1101",
+          "score": 0.021900126957257723,
+          "relevant": false,
+          "code_excerpt": "# cook your dish here \"\"\" Input: The first line of the input contains a single integer T denoting the number of test cases. The description of T test cases follows. The first line of each test case contains three space-separated integers p, q and r. The second line contains three"
+        },
+        {
+          "rank": 5,
+          "document_id": "d6112",
+          "score": 0.018996960486322188,
+          "relevant": false,
+          "code_excerpt": "n, k = list(map(int, input().split())) MOD = 10**9+7 def fast_modinv(up_to, M): ''' Fast modular inverses of 1..up_to modulo M. ''' modinv = [-1 for _ in range(up_to + 1)] modinv[1] = 1 for x in range(2, up_to + 1): modinv[x] = (-(M//x) * modinv[M%x])%M return modinv maxn = 2*10*"
+        }
+      ]
+    },
+    {
+      "query_id": "q6111",
+      "query_text": "Manao is trying to open a rather challenging lock. The lock has n buttons on it and to open it, you should press the buttons in a certain order to open the lock. When you push some button, it either stays pressed into the lock (that means that you've guessed correctly and pushed the button that goes next in the sequence), or all pressed buttons return to the initial position. When all buttons are pressed into the lock at once, the lock opens.\n\nConsider an example with three buttons. Let's say that the opening sequence is: {2, 3, 1}. If you first press buttons 1 or 3, the buttons unpress immediately. If you first press button 2, it stays pressed. If you press 1 after 2, all buttons unpress. If you press 3 after 2, buttons 3 and 2 stay pressed. As soon as you've got two pressed buttons, you only need to press button 1 to open the lock.\n\nManao doesn't know the opening sequence. But he is really smart and he is going to act in the optimal way. Calculate the number of times he's got to push a button in order to open the lock in the worst-case scenario.\n\n\n-----Input-----\n\nA single line contains integer n (1 ≤ n ≤ 2000) — the number of buttons the lock has.\n\n\n-----Output-----\n\nIn a single line print the number of times Manao has to push a button in the worst-case scenario.\n\n\n-----Examples-----\nInput\n2\n\nOutput\n3\n\nInput\n3\n\nOutput\n7\n\n\n\n-----Note-----\n\nConsider the first test sample. Manao can fail his first push and push the wrong button. In this case he will already be able to guess the right one with his second push. And his third push will push the second right button. Thus, in the worst-case scenario he will only need 3 pushes.",
+      "bm25": [
+        {
+          "rank": 1,
+          "document_id": "d2937",
+          "score": 498.15725568646116,
+          "relevant": false,
+          "code_excerpt": "# First, I coded a straightforward solution. It would work, but because it had to loop over all # students, and for every student over each locker, it had to do n^2 iterations. With numbers under # 10k this proved no problem, however the test cases apparently tested bigger number"
+        },
+        {
+          "rank": 2,
+          "document_id": "d1729",
+          "score": 472.36952501435576,
+          "relevant": false,
+          "code_excerpt": "class PlayerMovement: PREC = [8, 2, 4, 6] # Order of precedence I_KEYS = {8: 0, 2: 1, 4: 2, 6: 3} # Index of the keys in self.pressed MOVES = {8: (0,1), 2: (0,-1), 4: (-1,0), 6: (1,0)} # Moves directions def __init__(self, x, y): self.position = Tile(x, y) # Current position self"
+        },
+        {
+          "rank": 3,
+          "document_id": "d3316",
+          "score": 469.7193955882864,
+          "relevant": false,
+          "code_excerpt": "\"\"\"Strongest even number in an interval kata Defines strongest_even(n, m) which returns the strongest even number in the set of integers on the interval [n, m]. Constraints: 1. 1 <= n < m < MAX_INT Note: 1. The evenness of zero is need not be defined given the constraints. 2. In "
+        },
+        {
+          "rank": 4,
+          "document_id": "d3745",
+          "score": 462.55174483895763,
+          "relevant": false,
+          "code_excerpt": "def oddest(numbers): most_odd = 0 # The current most odd number in the list max_oddity = -1 # The current greatest oddity rate, starts at -1 so that even an even number can be the unique most odd is_unique = True # If the current most odd number is really the most, so if there is"
+        },
+        {
+          "rank": 5,
+          "document_id": "d6615",
+          "score": 444.34863240209876,
+          "relevant": false,
+          "code_excerpt": "3 # Copyright (C) 2016 Sayutin Dmitry. # # This program is free software; you can redistribute it and/or # modify it under the terms of the GNU General Public License as # published by the Free Software Foundation; version 3 # # This program is distributed in the hope that it wil"
+        }
+      ],
+      "minilm": [
+        {
+          "rank": 1,
+          "document_id": "d2937",
+          "score": 0.42684975266456604,
+          "relevant": false,
+          "code_excerpt": "# First, I coded a straightforward solution. It would work, but because it had to loop over all # students, and for every student over each locker, it had to do n^2 iterations. With numbers under # 10k this proved no problem, however the test cases apparently tested bigger number"
+        },
+        {
+          "rank": 2,
+          "document_id": "d3955",
+          "score": 0.41395246982574463,
+          "relevant": false,
+          "code_excerpt": "def press_button(n): return (n*n+5)*n/6"
+        },
+        {
+          "rank": 3,
+          "document_id": "d8427",
+          "score": 0.3949703276157379,
+          "relevant": false,
+          "code_excerpt": "import sys import random from math import * def input(): return sys.stdin.readline().strip() def iinput(): return int(input()) def finput(): return float(input()) def tinput(): return input().split() def linput(): return list(input()) def rinput(): return map(int, tinput()) def f"
+        },
+        {
+          "rank": 4,
+          "document_id": "d1729",
+          "score": 0.38299208879470825,
+          "relevant": false,
+          "code_excerpt": "class PlayerMovement: PREC = [8, 2, 4, 6] # Order of precedence I_KEYS = {8: 0, 2: 1, 4: 2, 6: 3} # Index of the keys in self.pressed MOVES = {8: (0,1), 2: (0,-1), 4: (-1,0), 6: (1,0)} # Moves directions def __init__(self, x, y): self.position = Tile(x, y) # Current position self"
+        },
+        {
+          "rank": 5,
+          "document_id": "d3590",
+          "score": 0.37790995836257935,
+          "relevant": false,
+          "code_excerpt": "def unique_digits(n): return len(set(str(n))) == len(str(n)) def next_numb(val): val += 1 while val % 3: val += 1 if val % 2 == 0: val += 3 while not unique_digits(val): val += 6 if val > 9876543210: break else: return val return \"There is no possible number that fulfills those r"
+        }
+      ],
+      "hybrid": [
+        {
+          "rank": 1,
+          "document_id": "d2937",
+          "score": 0.03278688524590164,
+          "relevant": false,
+          "code_excerpt": "# First, I coded a straightforward solution. It would work, but because it had to loop over all # students, and for every student over each locker, it had to do n^2 iterations. With numbers under # 10k this proved no problem, however the test cases apparently tested bigger number"
+        },
+        {
+          "rank": 2,
+          "document_id": "d1729",
+          "score": 0.031754032258064516,
+          "relevant": false,
+          "code_excerpt": "class PlayerMovement: PREC = [8, 2, 4, 6] # Order of precedence I_KEYS = {8: 0, 2: 1, 4: 2, 6: 3} # Index of the keys in self.pressed MOVES = {8: (0,1), 2: (0,-1), 4: (-1,0), 6: (1,0)} # Moves directions def __init__(self, x, y): self.position = Tile(x, y) # Current position self"
+        },
+        {
+          "rank": 3,
+          "document_id": "d7924",
+          "score": 0.018950567623133997,
+          "relevant": false,
+          "code_excerpt": "f0 = 'What are you doing at the end of the world? Are you busy? Will you save us?' ft1, ft2, ft3 = 'What are you doing while sending \"', '\"? Are you busy? Will you send \"', '\"?' flen = [2 * 10 ** 18] * (10 ** 5 + 1) flen[0] = len(f0) for i in range(1, 56): flen[i] = len(ft1) + le"
+        },
+        {
+          "rank": 4,
+          "document_id": "d481",
+          "score": 0.017960426179604264,
+          "relevant": false,
+          "code_excerpt": "# https://leetcode.com/problems/number-of-ways-to-stay-in-the-same-place-after-some-steps/discuss/569521/7-python-approaches-with-Time-and-Space-analysis class Solution: def numWays(self, steps: int, arrLen: int) -> int: r = min(arrLen, steps // 2 + 1) dp = [0, 1] for t in range("
+        },
+        {
+          "rank": 5,
+          "document_id": "d4455",
+          "score": 0.017862572210398296,
+          "relevant": false,
+          "code_excerpt": "BUTTONS = [ '1', 'abc2', 'def3', 'ghi4', 'jkl5', 'mno6', 'pqrs7', 'tuv8', 'wxyz9', '*', ' 0', '#' ] def presses(phrase): return sum(1 + button.find(c) for c in phrase.lower() for button in BUTTONS if c in button)"
+        }
+      ]
+    },
+    {
+      "query_id": "q8181",
+      "query_text": "In 2028 and after a continuous growth, AtCoder Inc. finally built an empire with six cities (City 1, 2, 3, 4, 5, 6)!\nThere are five means of transport in this empire:\n - Train: travels from City 1 to 2 in one minute. A train can occupy at most A people.\n - Bus: travels from City 2 to 3 in one minute. A bus can occupy at most B people.\n - Taxi: travels from City 3 to 4 in one minute. A taxi can occupy at most C people.\n - Airplane: travels from City 4 to 5 in one minute. An airplane can occupy at most D people.\n - Ship: travels from City 5 to 6 in one minute. A ship can occupy at most E people.\nFor each of them, one vehicle leaves the city at each integer time (time 0, 1, 2, ...).\nThere is a group of N people at City 1, and they all want to go to City 6.\n\nAt least how long does it take for all of them to reach there? \nYou can ignore the time needed to transfer.  \n\n-----Constraints-----\n - 1 \\leq N, A, B, C, D, E \\leq 10^{15}\n - All values in input are integers.\n\n-----Input-----\nInput is given from Standard Input in the following format:\nN\nA\nB\nC\nD\nE\n\n-----Output-----\nPrint the minimum time required for all of the people to reach City 6, in minutes.\n\n-----Sample Input-----\n5\n3\n2\n4\n3\n5\n\n-----Sample Output-----\n7\n\nOne possible way to travel is as follows.\nFirst, there are N = 5 people at City 1, as shown in the following image:\n\nIn the first minute, three people travels from City 1 to City 2 by train. Note that a train can only occupy at most three people.\n\nIn the second minute, the remaining two people travels from City 1 to City 2 by train, and two of the three people who were already at City 2 travels to City 3 by bus. Note that a bus can only occupy at most two people.\n\nIn the third minute, two people travels from City 2 to City 3 by train, and another two people travels from City 3 to City 4 by taxi.\n\nFrom then on, if they continue traveling without stopping until they reach City 6, all of them can reach there in seven minutes.\n\nThere is no way for them to reach City 6 in 6 minutes or less.",
+      "bm25": [
+        {
+          "rank": 1,
+          "document_id": "d3745",
+          "score": 522.3274584272363,
+          "relevant": false,
+          "code_excerpt": "def oddest(numbers): most_odd = 0 # The current most odd number in the list max_oddity = -1 # The current greatest oddity rate, starts at -1 so that even an even number can be the unique most odd is_unique = True # If the current most odd number is really the most, so if there is"
+        },
+        {
+          "rank": 2,
+          "document_id": "d8318",
+          "score": 514.7702861251337,
+          "relevant": false,
+          "code_excerpt": "import sys input = sys.stdin.readline n,k=list(map(int,input().split())) R=[list(map(int,input().split())) for i in range(n-1)] RDICT={tuple(sorted([R[i][0],R[i][1]])):i for i in range(n-1)} C=[[] for i in range(n+1)] for x,y in R: C[x].append(y) C[y].append(x) CLEN=[] for i in r"
+        },
+        {
+          "rank": 3,
+          "document_id": "d1227",
+          "score": 494.6821300165809,
+          "relevant": false,
+          "code_excerpt": "from collections import defaultdict from itertools import product def solve(mouse,n,m): # shadow matrix will contains the count of mice which affect (i,j) position # if there is a mice at position (i,j) then in shadow matrix it will affect all four adjacent blocks shadow=[[0 for "
+        },
+        {
+          "rank": 4,
+          "document_id": "d1640",
+          "score": 480.3998442098893,
+          "relevant": false,
+          "code_excerpt": "import math def gta(limit, *args): return sum_up(limit, make_pattern(limit, *args)) def binomial_coeff(n, k): \"\"\"N choose K\"\"\" return math.factorial(n) / math.factorial(n-k) def sum_up(limit, items): \"\"\" Basic Idea: The number of cominations is simply N choose K. We calcuate this"
+        },
+        {
+          "rank": 5,
+          "document_id": "d5992",
+          "score": 479.50154544872413,
+          "relevant": false,
+          "code_excerpt": "import heapq city_num, road_num, init_silver = map(int, input().split()) MAX_COST = 2500 init_silver = min(MAX_COST, init_silver) G = [[] for _ in range(city_num)] for _ in range(road_num): A, B, cost, time_cost = map(int, input().split()) A, B = A-1, B-1 G[B].append([A, cost, ti"
+        }
+      ],
+      "minilm": [
+        {
+          "rank": 1,
+          "document_id": "d8181",
+          "score": 0.535028338432312,
+          "relevant": true,
+          "code_excerpt": "#70 C - Five Transportations N = int(input()) lis = [int(input()) for _ in range(5)] mini = min(lis) group = (N+mini-1)//mini ans = 5 + group - 1 print(ans)"
+        },
+        {
+          "rank": 2,
+          "document_id": "d6642",
+          "score": 0.4833058714866638,
+          "relevant": false,
+          "code_excerpt": "# Question B. Road to Cinema import sys def roadToCinema(V, S, T, stations): # O(M) \"\"\" V : volume of fuel tank S : total distance T : time limit stations: fuel stations' locations rtype : boolean, whether this aircraft can travel within the time limit \"\"\" m = len(stations) t = 0"
+        },
+        {
+          "rank": 3,
+          "document_id": "d1758",
+          "score": 0.4801167845726013,
+          "relevant": false,
+          "code_excerpt": "def knights_tour(start, size): MOVES = [(-2,1), (-2,-1), (-1,-2), (1,-2), (2,-1), (2,1), (1,2), (-1,2)] def genNeighs(pos): return ((pos[0]+dx, pos[1]+dy) for dx,dy in MOVES if (pos[0]+dx, pos[1]+dy) in Warnsdorf_DP) def travel(pos): neighs = sorted( (Warnsdorf_DP[n], n) for n in"
+        },
+        {
+          "rank": 4,
+          "document_id": "d5481",
+          "score": 0.475704550743103,
+          "relevant": false,
+          "code_excerpt": "#!/usr/bin/env python3 def main(): try: while True: s, x1, x2 = list(map(int, input().split())) t1, t2 = list(map(int, input().split())) p, d = list(map(int, input().split())) def travel(src, trg): nonlocal d if src == trg: return 0 if src < trg: if d > 0: return trg - src else: "
+        },
+        {
+          "rank": 5,
+          "document_id": "d481",
+          "score": 0.453551709651947,
+          "relevant": false,
+          "code_excerpt": "# https://leetcode.com/problems/number-of-ways-to-stay-in-the-same-place-after-some-steps/discuss/569521/7-python-approaches-with-Time-and-Space-analysis class Solution: def numWays(self, steps: int, arrLen: int) -> int: r = min(arrLen, steps // 2 + 1) dp = [0, 1] for t in range("
+        }
+      ],
+      "hybrid": [
+        {
+          "rank": 1,
+          "document_id": "d5992",
+          "score": 0.030536130536130537,
+          "relevant": false,
+          "code_excerpt": "import heapq city_num, road_num, init_silver = map(int, input().split()) MAX_COST = 2500 init_silver = min(MAX_COST, init_silver) G = [[] for _ in range(city_num)] for _ in range(road_num): A, B, cost, time_cost = map(int, input().split()) A, B = A-1, B-1 G[B].append([A, cost, ti"
+        },
+        {
+          "rank": 2,
+          "document_id": "d6642",
+          "score": 0.026881720430107527,
+          "relevant": false,
+          "code_excerpt": "# Question B. Road to Cinema import sys def roadToCinema(V, S, T, stations): # O(M) \"\"\" V : volume of fuel tank S : total distance T : time limit stations: fuel stations' locations rtype : boolean, whether this aircraft can travel within the time limit \"\"\" m = len(stations) t = 0"
+        },
+        {
+          "rank": 3,
+          "document_id": "d5599",
+          "score": 0.024322344322344324,
+          "relevant": false,
+          "code_excerpt": "import bisect import collections def solve(inp, *args): n, x = list(map(int, inp.split(\" \", 1))) travels_by_len = collections.defaultdict(list) travels_by_len_processed = {} for travel in args: l, r, cost = list(map(int, travel.split(\" \", 2))) travels_by_len[r - l + 1].append((l,"
+        },
+        {
+          "rank": 4,
+          "document_id": "d6418",
+          "score": 0.019324894514767932,
+          "relevant": false,
+          "code_excerpt": "''' // There are n! / (i+1)! * i permutations with decreasing seq length i (i+1 changes) for i <= n! // There are n! / (i+1)! permutations for each 1 <= j <= i of position of moved one // All nonempty things + n*n! * (n*n! + 1) / 2 // Subtract off everything inside one of them - "
+        },
+        {
+          "rank": 5,
+          "document_id": "d5271",
+          "score": 0.01675675675675676,
+          "relevant": false,
+          "code_excerpt": "n, m = list(map(int, input().split())) edges_from = [[] for _ in range(n)] edges_to = [[] for _ in range(n)] for _ in range(m): _from, to = [int(x)-1 for x in input().split()] edges_from[_from].append(to) E_dist_to_goal = [0] * n P_of_reaching = [0] * n P_of_reaching[0] = 1 for v"
+        }
+      ]
+    },
+    {
+      "query_id": "q6057",
+      "query_text": "Hyakugoku has just retired from being the resident deity of the South Black Snail Temple in order to pursue her dream of becoming a cartoonist. She spent six months in that temple just playing \"Cat's Cradle\" so now she wants to try a different game — \"Snakes and Ladders\". Unfortunately, she already killed all the snakes, so there are only ladders left now. \n\nThe game is played on a $10 \\times 10$ board as follows:  At the beginning of the game, the player is at the bottom left square.  The objective of the game is for the player to reach the Goal (the top left square) by following the path and climbing vertical ladders. Once the player reaches the Goal, the game ends.  The path is as follows: if a square is not the end of its row, it leads to the square next to it along the direction of its row; if a square is the end of its row, it leads to the square above it. The direction of a row is determined as follows: the direction of the bottom row is to the right; the direction of any other row is opposite the direction of the row below it. See Notes section for visualization of path.  During each turn, the player rolls a standard six-sided dice. Suppose that the number shown on the dice is $r$. If the Goal is less than $r$ squares away on the path, the player doesn't move (but the turn is performed). Otherwise, the player advances exactly $r$ squares along the path and then stops. If the player stops on a square with the bottom of a ladder, the player chooses whether or not to climb up that ladder. If she chooses not to climb, then she stays in that square for the beginning of the next turn.  Some squares have a ladder in them. Ladders are only placed vertically — each one leads to the same square of some of the upper rows. In order for the player to climb up a ladder, after rolling the dice, she must stop at the square containing the bottom of the ladder. After using the ladder, the player will end up in the square containing the top of the ladder. She cannot leave the ladder in the middle of climbing. And if the square containing the top of the ladder also contains the bottom of another ladder, she is not allowed to use that second ladder.  The numbers on the faces of the dice are 1, 2, 3, 4, 5, and 6, with each number having the same probability of being shown. \n\nPlease note that:     it is possible for ladders to overlap, but the player cannot switch to the other ladder while in the middle of climbing the first one;     it is possible for ladders to go straight to the top row, but not any higher;     it is possible for two ladders to lead to the same tile;     it is possible for a ladder to lead to a tile that also has a ladder, but the player will not be able to use that second ladder if she uses the first one;     the player can only climb up ladders, not climb down. \n\nHyakugoku wants to finish the game as soon as possible. Thus, on each turn she chooses whether to climb the ladder or not optimally. Help her to determine the minimum expected number of turns the game will take.\n\n\n-----Input-----\n\nInput will consist of ten lines. The $i$-th line will contain 10 non-negative integers $h_{i1}, h_{i2}, \\dots, h_{i10}$. If $h_{ij}$ is $0$, then the tile at the $i$-th row and $j$-th column has no ladder. Otherwise, the ladder at that tile will have a height of $h_{ij}$, i.e. climbing it will lead to the tile $h_{ij}$ rows directly above. It is guaranteed that $0 \\leq h_{ij} < i$. Also, the first number of the first line and the first number of the last line always contain $0$, i.e. the Goal and the starting tile never have ladders.\n\n\n-----Output-----\n\nPrint only one line containing a single floating-point number — the minimum expected number of turns Hyakugoku can take to finish the game. Your answer will be considered correct if its absolute or relative error does not exceed $10^{-6}$.\n\n\n-----Examples-----\nInput\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n\nOutput\n33.0476190476\n\nInput\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 3 0 0 0 4 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 4 0 0 0\n0 0 3 0 0 0 0 0 0 0\n0 0 4 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 9\n\nOutput\n20.2591405923\n\nInput\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 6 6 6 6 6 6 0 0 0\n1 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n\nOutput\n15.9047592939\n\n\n\n-----Note-----\n\nA visualization of the path and the board from example 2 is as follows: [Image]\n\nThe tile with an 'S' is the starting tile and the tile with an 'E' is the Goal.\n\nFor the first example, there are no ladders.\n\nFor the second example, the board looks like the one in the right part of the image (the ladders have been colored for clarity).\n\nIt is possible for ladders to overlap, as is the case with the red and yellow ladders and green and blue ladders. It is also possible for ladders to go straight to the top, as is the case with the black and blue ladders. However, it is not possible for ladders to go any higher (outside of the board). It is also possible that two ladders lead to the same tile, as is the case with the red and yellow ladders. Also, notice that the red and yellow ladders lead to the tile with the orange ladder. So if the player chooses to climb either of the red and yellow ladders, they will not be able to climb the orange ladder. Finally, notice that the green ladder passes through the starting tile of the blue ladder. The player cannot transfer from the green ladder to the blue ladder while in the middle of climbing the green ladder.",
+      "bm25": [
+        {
+          "rank": 1,
+          "document_id": "d1101",
+          "score": 2764.6967350876553,
+          "relevant": false,
+          "code_excerpt": "# cook your dish here \"\"\" Input: The first line of the input contains a single integer T denoting the number of test cases. The description of T test cases follows. The first line of each test case contains three space-separated integers p, q and r. The second line contains three"
+        },
+        {
+          "rank": 2,
+          "document_id": "d1729",
+          "score": 2706.031092719985,
+          "relevant": false,
+          "code_excerpt": "class PlayerMovement: PREC = [8, 2, 4, 6] # Order of precedence I_KEYS = {8: 0, 2: 1, 4: 2, 6: 3} # Index of the keys in self.pressed MOVES = {8: (0,1), 2: (0,-1), 4: (-1,0), 6: (1,0)} # Moves directions def __init__(self, x, y): self.position = Tile(x, y) # Current position self"
+        },
+        {
+          "rank": 3,
+          "document_id": "d3745",
+          "score": 2651.0428391957876,
+          "relevant": false,
+          "code_excerpt": "def oddest(numbers): most_odd = 0 # The current most odd number in the list max_oddity = -1 # The current greatest oddity rate, starts at -1 so that even an even number can be the unique most odd is_unique = True # If the current most odd number is really the most, so if there is"
+        },
+        {
+          "rank": 4,
+          "document_id": "d5285",
+          "score": 2640.397633679527,
+          "relevant": false,
+          "code_excerpt": "3 # Copyright (C) 2016 Sayutin Dmitry. # # This program is free software; you can redistribute it and/or # modify it under the terms of the GNU General Public License as # published by the Free Software Foundation; version 3 # # This program is distributed in the hope that it wil"
+        },
+        {
+          "rank": 5,
+          "document_id": "d2435",
+          "score": 2571.911351891891,
+          "relevant": false,
+          "code_excerpt": "class Solution: def isOneBitCharacter(self, bits): \"\"\" :type bits: List[int] :rtype: bool \"\"\" \"\"\" i = 0 while i < len(bits)-1: if bits[i] == 1: i += 2 else: # bits[i] is 0 i += 1 # index: 0,1,2,..., L-2, L-1, where L denotes len(bits) if i == len(bits): # i comes from i+=2 case, "
+        }
+      ],
+      "minilm": [
+        {
+          "rank": 1,
+          "document_id": "d6634",
+          "score": 0.46285879611968994,
+          "relevant": false,
+          "code_excerpt": "\"\"\" Codeforces Contest 288 Div 2 Problem A Author : chaotic_iak Language: Python 3.4.2 \"\"\" ################################################### SOLUTION def main(): n,m,k = read() board = [[0]*m for _ in range(n)] for i in range(k): x,y = read() x -= 1 y -= 1 board[x][y] = 1 if x "
+        },
+        {
+          "rank": 2,
+          "document_id": "d4983",
+          "score": 0.44071751832962036,
+          "relevant": false,
+          "code_excerpt": "class Game(): def __init__(self, n): k = 2 * n + 1 self.board = {frozenset(k * r + 1 + c + d for d in (0, n, n + 1, k)) for r in range(n) for c in range(n)} def play(self, lines): lines = set(lines) while 1: for cell in self.board: stick = cell - lines if len(stick) <= 1: lines |"
+        },
+        {
+          "rank": 3,
+          "document_id": "d1734",
+          "score": 0.43657344579696655,
+          "relevant": false,
+          "code_excerpt": "from collections import deque moves = ((1, 2), (1, -2), (-1, 2), (-1, -2), (2, 1), (2, -1), (-2, 1), (-2, -1)) def knight(p1, p2): x, y = ord(p2[0])-97, int(p2[1])-1 left, seen = deque([(ord(p1[0])-97, int(p1[1])-1, 0)]), set() while left: i, j, v = left.popleft() if i==x and j=="
+        },
+        {
+          "rank": 4,
+          "document_id": "d4782",
+          "score": 0.436420738697052,
+          "relevant": false,
+          "code_excerpt": "import math def spider_to_fly(spider, fly): web = {'A': 0, 'B': 45, 'C': 90, 'D': 135, 'E': 180, 'F': 225, 'G': 270, 'H': 315} angle = min(abs(web[spider[0]] - web[fly[0]]), 360 - abs(web[spider[0]] - web[fly[0]])) sideA, sideB = int(spider[1]), int(fly[1]) return math.sqrt(sideA"
+        },
+        {
+          "rank": 5,
+          "document_id": "d4279",
+          "score": 0.43462422490119934,
+          "relevant": false,
+          "code_excerpt": "def diagonal(m): P = sum(m[i][i] for i in range(len(m))) S = sum(m[i][-i-1] for i in range(len(m))) if P > S: return \"Principal Diagonal win!\" elif S > P: return \"Secondary Diagonal win!\" else: return 'Draw!'"
+        }
+      ],
+      "hybrid": [
+        {
+          "rank": 1,
+          "document_id": "d1729",
+          "score": 0.023762620044324057,
+          "relevant": false,
+          "code_excerpt": "class PlayerMovement: PREC = [8, 2, 4, 6] # Order of precedence I_KEYS = {8: 0, 2: 1, 4: 2, 6: 3} # Index of the keys in self.pressed MOVES = {8: (0,1), 2: (0,-1), 4: (-1,0), 6: (1,0)} # Moves directions def __init__(self, x, y): self.position = Tile(x, y) # Current position self"
+        },
+        {
+          "rank": 2,
+          "document_id": "d1665",
+          "score": 0.023484848484848483,
+          "relevant": false,
+          "code_excerpt": "from itertools import count ALL_MOVES = [(1,1), (0,1), ( 1,0), (-1,0), (0,-1), (-1,1), ( 1,-1), (-1,-1)] # Natural directions of moves for king or queen (one step) AMA_MOVES = [(1,2), (2,1), (-1,2), (2,-1), (1,-2), (-2,1), (-1,-2), (-2,-1)] # Knight moves for amazon queen def ama"
+        },
+        {
+          "rank": 3,
+          "document_id": "d1792",
+          "score": 0.023467173087357567,
+          "relevant": false,
+          "code_excerpt": "from collections import deque from numpy import cross, dot MOVES = ((1,0), (-1,0), (0,1), (0,-1)) DIRS = ( 'v', '^', '>', '<') def escape(maze): start = x,y = next( (x,y) for x,row in enumerate(maze) for y,c in enumerate(row) if c not in '# ' ) X, Y, dir = len(maze), len(maze[0])"
+        },
+        {
+          "rank": 4,
+          "document_id": "d6634",
+          "score": 0.01639344262295082,
+          "relevant": false,
+          "code_excerpt": "\"\"\" Codeforces Contest 288 Div 2 Problem A Author : chaotic_iak Language: Python 3.4.2 \"\"\" ################################################### SOLUTION def main(): n,m,k = read() board = [[0]*m for _ in range(n)] for i in range(k): x,y = read() x -= 1 y -= 1 board[x][y] = 1 if x "
+        },
+        {
+          "rank": 5,
+          "document_id": "d1101",
+          "score": 0.01639344262295082,
+          "relevant": false,
+          "code_excerpt": "# cook your dish here \"\"\" Input: The first line of the input contains a single integer T denoting the number of test cases. The description of T test cases follows. The first line of each test case contains three space-separated integers p, q and r. The second line contains three"
+        }
+      ]
+    }
+  ]
+}

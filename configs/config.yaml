@@ -1,0 +1,16 @@
+project:
+  name: samsung-prism-agentic-code-intelligence
+  phase: initial-baseline
+  seed: 42
+
+evaluation:
+  task: AppsRetrieval
+  dataset_revision: f22508f96b7a36c2415181ed8bb76f76e04ae2d5
+  output_folder: artifacts/evaluation
+  overwrite_results: true
+
+encoder:
+  model_name: sentence-transformers/all-MiniLM-L6-v2
+  model_revision: 1110a243fdf4706b3f48f1d95db1a4f5529b4d41
+  device: cpu
+  batch_size: 16

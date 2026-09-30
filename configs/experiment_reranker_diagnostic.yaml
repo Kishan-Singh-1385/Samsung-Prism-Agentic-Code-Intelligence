@@ -1,0 +1,16 @@
+experiment:
+  task: AppsRetrieval
+  dataset_revision: f22508f96b7a36c2415181ed8bb76f76e04ae2d5
+  output_file: artifacts/experiments/results.json
+  diagnostics_file: artifacts/experiments/diagnostics/reranker_features.json
+  cache_folder: artifacts/experiments/cache
+
+dense:
+  model: sentence-transformers/all-MiniLM-L6-v2
+  revision: 1110a243fdf4706b3f48f1d95db1a4f5529b4d41
+  candidate_depth: 200
+
+runtime:
+  device: cpu
+  batch_size: 16
+  seed: 42

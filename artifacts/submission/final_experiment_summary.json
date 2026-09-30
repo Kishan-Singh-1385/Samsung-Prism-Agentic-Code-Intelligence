@@ -1,0 +1,71 @@
+{
+  "submission": "Samsung PRISM Agentic Code Intelligence",
+  "created_at": "2026-09-30",
+  "environment": {
+    "python": "3.10.11",
+    "mteb": "2.21.10",
+    "sentence_transformers": "6.1.0"
+  },
+  "official_control": {
+    "task": "CoIR AppsRetrieval",
+    "dataset_revision": "f22508f96b7a36c2415181ed8bb76f76e04ae2d5",
+    "split": "test",
+    "corpus_documents": 8765,
+    "queries": 3765,
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "device": "cpu",
+    "batch_size": 16,
+    "ndcg_at_10": 0.06596,
+    "mrr_at_10": 0.05581,
+    "mteb_task_runtime_seconds": 260.19656348228455,
+    "runner_runtime_seconds": 278.96,
+    "peak_working_set_mib": 1461.41,
+    "cpu_compatible": true,
+    "reproduction_command": "python scripts/evaluate.py --device cpu --batch-size 16",
+    "mteb_evaluation_json": "artifacts/evaluation/sentence-transformers__all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/AppsRetrieval.json",
+    "prediction_json": "artifacts/submission/apps_retrieval_test_top10.json",
+    "prediction_format": "qid -> document_id -> cosine score; top 10 per query",
+    "demo_command": "python scripts/demo_retrieve.py --query \"Use breadth-first search to find shortest path distances in an unweighted graph.\"",
+    "demo_queries": "artifacts/demo_queries.json"
+  },
+  "experiments_not_selected": [
+    {
+      "name": "BM25 code lexical",
+      "ndcg_at_10": 0.01528,
+      "mrr_at_10": 0.012933978372225385,
+      "reason": "Well below the MiniLM control on both metrics."
+    },
+    {
+      "name": "RRF depth 200 k=60",
+      "ndcg_at_10": 0.06696,
+      "mrr_at_10": 0.05499040873542862,
+      "reason": "NDCG improved slightly, but MRR was lower than the MiniLM control."
+    },
+    {
+      "name": "RRF depth 100 k=10",
+      "ndcg_at_10": 0.06435,
+      "mrr_at_10": 0.05662450726195743,
+      "reason": "MRR improved slightly, but NDCG was lower than the MiniLM control."
+    },
+    {
+      "name": "Fixed diagnostic feature scorer",
+      "ndcg_at_10": 0.05814,
+      "mrr_at_10": 0.047741626088239605,
+      "reason": "Unfitted diagnostic heuristic performed worse; no learned reranker was trained because AppsRetrieval exposes no train/dev qrels."
+    },
+    {
+      "name": "BGE code search raw / processed",
+      "metrics": [
+        {"ndcg_at_10": 0.05659, "mrr_at_10": 0.048243},
+        {"ndcg_at_10": 0.05469, "mrr_at_10": 0.046593}
+      ],
+      "reason": "Both measured variants scored below the MiniLM control on both metrics."
+    }
+  ],
+  "known_limitations": [
+    "The MTEB AppsRetrieval artifact is a metric report; query-level top-10 predictions are exported separately.",
+    "The test-only dataset provides no legitimate train/dev relevance labels for learning a reranker.",
+    "Predictions cover the official test queries and are not an interactive evaluation service."
+  ]
+}

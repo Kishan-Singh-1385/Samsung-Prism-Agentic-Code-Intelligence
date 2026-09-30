@@ -1,0 +1,48 @@
+{
+  "submission": "Samsung PRISM Agentic Code Intelligence",
+  "status": "candidate submission system; official baseline preserved",
+  "dataset": {
+    "task": "CoIR AppsRetrieval",
+    "revision": "f22508f96b7a36c2415181ed8bb76f76e04ae2d5",
+    "available_splits": [
+      "test"
+    ],
+    "corpus_documents": 8765,
+    "queries": 3765,
+    "relevance_labels_used_only_for_final_metric_calculation": true,
+    "test_only_limit": "AppsRetrieval provides only the test split; the measured improvement is exploratory and has not been independently validated."
+  },
+  "official_baseline": {
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "representation": "official title/text representation; queries raw",
+    "ndcg_at_10": 0.06596,
+    "mrr_at_10": 0.05581,
+    "source": "previously verified official baseline; baseline artifacts unchanged",
+    "prediction_json": "artifacts/submission/apps_retrieval_test_top10.json"
+  },
+  "final_candidate": {
+    "name": "Variant B: python code marker",
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "representation": "corpus='python code:\\n'+official title/text; queries raw",
+    "ndcg_at_10": 0.06922,
+    "mrr_at_10": 0.05813855688357678,
+    "ndcg_absolute_change_vs_baseline": 0.003259999999999999,
+    "mrr_absolute_change_vs_baseline": 0.0023285568835767836,
+    "runtime_seconds": 12.13485220001894,
+    "retrieval_and_metric_seconds": 2.4433477999991737,
+    "peak_working_set_mib": 363.62890625,
+    "device": "cpu",
+    "batch_size": 16,
+    "corpus_embeddings_cache_hit": true,
+    "corpus_embeddings_cache_path": "artifacts\\experiments\\cache\\cheap_ablation_65f16a2e1d545314.npz",
+    "query_embeddings_cache_hit": true,
+    "query_embeddings_cache_path": "artifacts\\experiments\\cache\\apps_test_minilm_9dc7b770b5cc6fb9.npz",
+    "candidate_prediction_json": "artifacts/submission/apps_retrieval_test_top10_variant_b.json",
+    "submission_format": "MTEB-compatible query-id -> document-id -> cosine-score map; top 10 per query",
+    "exploratory_test_set_measurement": true,
+    "independently_validated": false
+  },
+  "reproduction_command": "python scripts/validate_variant_b.py --device cpu --batch-size 16"
+}

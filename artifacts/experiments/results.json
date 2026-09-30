@@ -1,0 +1,684 @@
+{
+  "experiments": [
+    {
+      "experiment_name": "baseline_control",
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "model_revision": null,
+      "preprocessing_configuration": {
+        "mode": "raw MTEB fields"
+      },
+      "dataset_task": "AppsRetrieval",
+      "dataset_revision": "f22508f96b7a36c2415181ed8bb76f76e04ae2d5",
+      "split": "test",
+      "corpus_size": 8765,
+      "query_count": 3765,
+      "ndcg_at_10": 0.06596,
+      "mrr_at_10": 0.05581,
+      "runtime_seconds": 331.22,
+      "runtime_is_approximate": true,
+      "device": "cpu",
+      "batch_size": 16,
+      "peak_memory_bytes": null,
+      "peak_memory_mib": null,
+      "source": "previously verified baseline supplied by user",
+      "mteb_evaluation_seconds": 267.85
+    },
+    {
+      "experiment_name": "bge_code_raw",
+      "started_at_utc": "2026-09-30T06:40:27.438351+00:00",
+      "model": "Matthieufromparis/bge-small-code-search-v1",
+      "model_revision": "e1a4d1213decff82b028833a677aa2410a5c67ed",
+      "preprocessing_configuration": {
+        "mode": "raw MTEB fields"
+      },
+      "preprocessing_statistics": {
+        "corpus_documents": 8765,
+        "titles_included": 0,
+        "starter_code_available": 3401,
+        "starter_code_included": 0,
+        "starter_code_omitted_as_redundant": 0,
+        "queries": 3765,
+        "queries_changed_by_normalization": 0
+      },
+      "dataset_task": "AppsRetrieval",
+      "dataset_revision": "f22508f96b7a36c2415181ed8bb76f76e04ae2d5",
+      "split": "test",
+      "corpus_size": 8765,
+      "query_count": 3765,
+      "ndcg_at_10": 0.05659,
+      "mrr_at_10": 0.048243,
+      "runtime_seconds": 852.3297273999779,
+      "mteb_evaluation_seconds": 830.6675724983215,
+      "device": "cpu",
+      "batch_size": 16,
+      "max_seq_length": 512,
+      "peak_memory_bytes": 999735296,
+      "peak_memory_mib": 953.43,
+      "peak_memory_measurement": "windows_live_process_peak_working_set_approx",
+      "mteb_result_json": "artifacts\\experiments\\mteb\\raw\\Matthieufromparis__bge-small-code-search-v1\\e1a4d1213decff82b028833a677aa2410a5c67ed\\AppsRetrieval.json"
+    },
+    {
+      "experiment_name": "bge_code_processed",
+      "started_at_utc": "2026-09-30T06:55:38.748709+00:00",
+      "model": "Matthieufromparis/bge-small-code-search-v1",
+      "model_revision": "e1a4d1213decff82b028833a677aa2410a5c67ed",
+      "preprocessing_configuration": {
+        "version": "code_representation_v1",
+        "include_title_when_nonempty": true,
+        "include_language": true,
+        "include_distinct_starter_code": true,
+        "starter_overlap_threshold": 0.8,
+        "normalize_query_whitespace": true,
+        "preserve_original_query_column": true,
+        "include_urls": false
+      },
+      "preprocessing_statistics": {
+        "corpus_documents": 8765,
+        "titles_included": 0,
+        "starter_code_available": 3401,
+        "starter_code_included": 1032,
+        "starter_code_omitted_as_redundant": 2369,
+        "queries": 3765,
+        "queries_changed_by_normalization": 3739
+      },
+      "dataset_task": "AppsRetrieval",
+      "dataset_revision": "f22508f96b7a36c2415181ed8bb76f76e04ae2d5",
+      "split": "test",
+      "corpus_size": 8765,
+      "query_count": 3765,
+      "ndcg_at_10": 0.05469,
+      "mrr_at_10": 0.046593,
+      "runtime_seconds": 908.4259554000164,
+      "mteb_evaluation_seconds": 884.5298709869385,
+      "device": "cpu",
+      "batch_size": 16,
+      "max_seq_length": 512,
+      "peak_memory_bytes": 1597980672,
+      "peak_memory_mib": 1523.95,
+      "peak_memory_measurement": "windows_peak_working_set",
+      "mteb_result_json": "artifacts\\experiments\\mteb\\processed\\Matthieufromparis__bge-small-code-search-v1\\e1a4d1213decff82b028833a677aa2410a5c67ed\\AppsRetrieval.json"
+    },
+    {
+      "experiment_name": "bm25_code_lexical",
+      "retrievers_used": [
+        "BM25"
+      ],
+      "embedding_model": null,
+      "embedding_model_revision": null,
+      "tokenizer": {
+        "name": "prism.preprocessing.code_tokens.tokenize_programming_text",
+        "version": "programming_tokens_v1",
+        "keep_whole_identifiers": true,
+        "split_snake_case": true,
+        "split_camel_case": true,
+        "keep_numbers": true,
+        "min_token_length": 1,
+        "stopwords": false,
+        "stemming": false
+      },
+      "bm25_parameters": {
+        "implementation": "rank-bm25.BM25Okapi",
+        "k1": 1.5,
+        "b": 0.75,
+        "epsilon": 0.25
+      },
+      "candidate_depth": 200,
+      "rrf_parameters": null,
+      "dataset_task": "AppsRetrieval",
+      "dataset_revision": "f22508f96b7a36c2415181ed8bb76f76e04ae2d5",
+      "split": "test",
+      "corpus_size": 8765,
+      "query_count": 3765,
+      "ndcg_at_10": 0.01528,
+      "mrr_at_10": 0.012933978372225385,
+      "runtime_seconds": 15.479102699988289,
+      "runtime_breakdown_seconds": {
+        "bm25_index_build_seconds": 2.3456791999924462,
+        "bm25_cache_load_seconds": 0.0,
+        "bm25_retrieval_seconds": 12.61481869997806,
+        "metric_seconds": 0.5186048000177834
+      },
+      "device": "cpu",
+      "batch_size": 16,
+      "peak_memory_bytes": 1030492160,
+      "peak_memory_mib": 982.75,
+      "peak_memory_scope": "integrated experiment process high-water mark"
+    },
+    {
+      "experiment_name": "minilm_dense_reproduction",
+      "retrievers_used": [
+        "MiniLM dense"
+      ],
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "embedding_model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "tokenizer": {
+        "mode": "baseline raw MTEB text fields"
+      },
+      "bm25_parameters": null,
+      "candidate_depth": 200,
+      "rrf_parameters": null,
+      "dataset_task": "AppsRetrieval",
+      "dataset_revision": "f22508f96b7a36c2415181ed8bb76f76e04ae2d5",
+      "split": "test",
+      "corpus_size": 8765,
+      "query_count": 3765,
+      "ndcg_at_10": 0.06596,
+      "mrr_at_10": 0.055810409157022685,
+      "runtime_seconds": 259.41941310005495,
+      "runtime_breakdown_seconds": {
+        "dense_model_load_seconds": 2.606802599999355,
+        "dense_embedding_seconds": 253.75826700002654,
+        "dense_cache_load_seconds": 0.0,
+        "dense_ranking_seconds": 2.54671390002477,
+        "metric_seconds": 0.507629600004293
+      },
+      "device": "cpu",
+      "batch_size": 16,
+      "peak_memory_bytes": 1030492160,
+      "peak_memory_mib": 982.75,
+      "peak_memory_scope": "integrated experiment process high-water mark"
+    },
+    {
+      "experiment_name": "hybrid_rrf_depth50_k60",
+      "retrievers_used": [
+        "BM25",
+        "MiniLM dense",
+        "Reciprocal Rank Fusion"
+      ],
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "embedding_model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "tokenizer": {
+        "name": "prism.preprocessing.code_tokens.tokenize_programming_text",
+        "version": "programming_tokens_v1",
+        "keep_whole_identifiers": true,
+        "split_snake_case": true,
+        "split_camel_case": true,
+        "keep_numbers": true,
+        "min_token_length": 1,
+        "stopwords": false,
+        "stemming": false
+      },
+      "bm25_parameters": {
+        "implementation": "rank-bm25.BM25Okapi",
+        "k1": 1.5,
+        "b": 0.75,
+        "epsilon": 0.25
+      },
+      "candidate_depth": 50,
+      "rrf_parameters": {
+        "k": 60
+      },
+      "dataset_task": "AppsRetrieval",
+      "dataset_revision": "f22508f96b7a36c2415181ed8bb76f76e04ae2d5",
+      "split": "test",
+      "corpus_size": 8765,
+      "query_count": 3765,
+      "ndcg_at_10": 0.06134,
+      "mrr_at_10": 0.052042833955184546,
+      "runtime_seconds": 274.4069121000648,
+      "runtime_breakdown_seconds": {
+        "bm25_index_build_seconds": 2.3456791999924462,
+        "bm25_cache_load_seconds": 0.0,
+        "bm25_retrieval_seconds": 12.61481869997806,
+        "dense_model_load_seconds": 2.606802599999355,
+        "dense_embedding_seconds": 253.75826700002654,
+        "dense_cache_load_seconds": 0.0,
+        "dense_ranking_seconds": 2.54671390002477,
+        "fusion_seconds": 0.12685210001654923,
+        "metric_seconds": 0.4077786000270862,
+        "dense_embedding_cache_hit": false,
+        "cold_dense_embedding_seconds": 253.75826700002654
+      },
+      "device": "cpu",
+      "batch_size": 16,
+      "peak_memory_bytes": 1030492160,
+      "peak_memory_mib": 982.75,
+      "peak_memory_scope": "integrated experiment process high-water mark"
+    },
+    {
+      "experiment_name": "hybrid_rrf_depth100_k60",
+      "retrievers_used": [
+        "BM25",
+        "MiniLM dense",
+        "Reciprocal Rank Fusion"
+      ],
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "embedding_model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "tokenizer": {
+        "name": "prism.preprocessing.code_tokens.tokenize_programming_text",
+        "version": "programming_tokens_v1",
+        "keep_whole_identifiers": true,
+        "split_snake_case": true,
+        "split_camel_case": true,
+        "keep_numbers": true,
+        "min_token_length": 1,
+        "stopwords": false,
+        "stemming": false
+      },
+      "bm25_parameters": {
+        "implementation": "rank-bm25.BM25Okapi",
+        "k1": 1.5,
+        "b": 0.75,
+        "epsilon": 0.25
+      },
+      "candidate_depth": 100,
+      "rrf_parameters": {
+        "k": 60
+      },
+      "dataset_task": "AppsRetrieval",
+      "dataset_revision": "f22508f96b7a36c2415181ed8bb76f76e04ae2d5",
+      "split": "test",
+      "corpus_size": 8765,
+      "query_count": 3765,
+      "ndcg_at_10": 0.06389,
+      "mrr_at_10": 0.05346624085667907,
+      "runtime_seconds": 274.7779016000277,
+      "runtime_breakdown_seconds": {
+        "bm25_index_build_seconds": 2.3456791999924462,
+        "bm25_cache_load_seconds": 0.0,
+        "bm25_retrieval_seconds": 12.61481869997806,
+        "dense_model_load_seconds": 2.606802599999355,
+        "dense_embedding_seconds": 253.75826700002654,
+        "dense_cache_load_seconds": 0.0,
+        "dense_ranking_seconds": 2.54671390002477,
+        "fusion_seconds": 0.26529690000461414,
+        "metric_seconds": 0.64032330000191,
+        "dense_embedding_cache_hit": false,
+        "cold_dense_embedding_seconds": 253.75826700002654
+      },
+      "device": "cpu",
+      "batch_size": 16,
+      "peak_memory_bytes": 1030492160,
+      "peak_memory_mib": 982.75,
+      "peak_memory_scope": "integrated experiment process high-water mark",
+      "is_default_hybrid": true
+    },
+    {
+      "experiment_name": "hybrid_rrf_depth200_k60",
+      "retrievers_used": [
+        "BM25",
+        "MiniLM dense",
+        "Reciprocal Rank Fusion"
+      ],
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "embedding_model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "tokenizer": {
+        "name": "prism.preprocessing.code_tokens.tokenize_programming_text",
+        "version": "programming_tokens_v1",
+        "keep_whole_identifiers": true,
+        "split_snake_case": true,
+        "split_camel_case": true,
+        "keep_numbers": true,
+        "min_token_length": 1,
+        "stopwords": false,
+        "stemming": false
+      },
+      "bm25_parameters": {
+        "implementation": "rank-bm25.BM25Okapi",
+        "k1": 1.5,
+        "b": 0.75,
+        "epsilon": 0.25
+      },
+      "candidate_depth": 200,
+      "rrf_parameters": {
+        "k": 60
+      },
+      "dataset_task": "AppsRetrieval",
+      "dataset_revision": "f22508f96b7a36c2415181ed8bb76f76e04ae2d5",
+      "split": "test",
+      "corpus_size": 8765,
+      "query_count": 3765,
+      "ndcg_at_10": 0.06696,
+      "mrr_at_10": 0.05499040873542862,
+      "runtime_seconds": 275.5143459000392,
+      "runtime_breakdown_seconds": {
+        "bm25_index_build_seconds": 2.3456791999924462,
+        "bm25_cache_load_seconds": 0.0,
+        "bm25_retrieval_seconds": 12.61481869997806,
+        "dense_model_load_seconds": 2.606802599999355,
+        "dense_embedding_seconds": 253.75826700002654,
+        "dense_cache_load_seconds": 0.0,
+        "dense_ranking_seconds": 2.54671390002477,
+        "fusion_seconds": 0.5119985000055749,
+        "metric_seconds": 1.130066000012448,
+        "dense_embedding_cache_hit": false,
+        "cold_dense_embedding_seconds": 253.75826700002654
+      },
+      "device": "cpu",
+      "batch_size": 16,
+      "peak_memory_bytes": 1030492160,
+      "peak_memory_mib": 982.75,
+      "peak_memory_scope": "integrated experiment process high-water mark"
+    },
+    {
+      "experiment_name": "hybrid_rrf_depth100_k10",
+      "retrievers_used": [
+        "BM25",
+        "MiniLM dense",
+        "Reciprocal Rank Fusion"
+      ],
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "embedding_model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "tokenizer": {
+        "name": "prism.preprocessing.code_tokens.tokenize_programming_text",
+        "version": "programming_tokens_v1",
+        "keep_whole_identifiers": true,
+        "split_snake_case": true,
+        "split_camel_case": true,
+        "keep_numbers": true,
+        "min_token_length": 1,
+        "stopwords": false,
+        "stemming": false
+      },
+      "bm25_parameters": {
+        "implementation": "rank-bm25.BM25Okapi",
+        "k1": 1.5,
+        "b": 0.75,
+        "epsilon": 0.25
+      },
+      "candidate_depth": 100,
+      "rrf_parameters": {
+        "k": 10
+      },
+      "dataset_task": "AppsRetrieval",
+      "dataset_revision": "f22508f96b7a36c2415181ed8bb76f76e04ae2d5",
+      "split": "test",
+      "corpus_size": 8765,
+      "query_count": 3765,
+      "ndcg_at_10": 0.06435,
+      "mrr_at_10": 0.05662450726195743,
+      "runtime_seconds": 274.78952010002104,
+      "runtime_breakdown_seconds": {
+        "bm25_index_build_seconds": 2.3456791999924462,
+        "bm25_cache_load_seconds": 0.0,
+        "bm25_retrieval_seconds": 12.61481869997806,
+        "dense_model_load_seconds": 2.606802599999355,
+        "dense_embedding_seconds": 253.75826700002654,
+        "dense_cache_load_seconds": 0.0,
+        "dense_ranking_seconds": 2.54671390002477,
+        "fusion_seconds": 0.2490366999991238,
+        "metric_seconds": 0.6682020000007469,
+        "dense_embedding_cache_hit": false,
+        "cold_dense_embedding_seconds": 253.75826700002654
+      },
+      "device": "cpu",
+      "batch_size": 16,
+      "peak_memory_bytes": 1030492160,
+      "peak_memory_mib": 982.75,
+      "peak_memory_scope": "integrated experiment process high-water mark"
+    },
+    {
+      "experiment_name": "hybrid_rrf_depth100_k100",
+      "retrievers_used": [
+        "BM25",
+        "MiniLM dense",
+        "Reciprocal Rank Fusion"
+      ],
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "embedding_model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "tokenizer": {
+        "name": "prism.preprocessing.code_tokens.tokenize_programming_text",
+        "version": "programming_tokens_v1",
+        "keep_whole_identifiers": true,
+        "split_snake_case": true,
+        "split_camel_case": true,
+        "keep_numbers": true,
+        "min_token_length": 1,
+        "stopwords": false,
+        "stemming": false
+      },
+      "bm25_parameters": {
+        "implementation": "rank-bm25.BM25Okapi",
+        "k1": 1.5,
+        "b": 0.75,
+        "epsilon": 0.25
+      },
+      "candidate_depth": 100,
+      "rrf_parameters": {
+        "k": 100
+      },
+      "dataset_task": "AppsRetrieval",
+      "dataset_revision": "f22508f96b7a36c2415181ed8bb76f76e04ae2d5",
+      "split": "test",
+      "corpus_size": 8765,
+      "query_count": 3765,
+      "ndcg_at_10": 0.06319,
+      "mrr_at_10": 0.05220620164843271,
+      "runtime_seconds": 275.0416404000134,
+      "runtime_breakdown_seconds": {
+        "bm25_index_build_seconds": 2.3456791999924462,
+        "bm25_cache_load_seconds": 0.0,
+        "bm25_retrieval_seconds": 12.61481869997806,
+        "dense_model_load_seconds": 2.606802599999355,
+        "dense_embedding_seconds": 253.75826700002654,
+        "dense_cache_load_seconds": 0.0,
+        "dense_ranking_seconds": 2.54671390002477,
+        "fusion_seconds": 0.5250669999804813,
+        "metric_seconds": 0.6442920000117738,
+        "dense_embedding_cache_hit": false,
+        "cold_dense_embedding_seconds": 253.75826700002654
+      },
+      "device": "cpu",
+      "batch_size": 16,
+      "peak_memory_bytes": 1030492160,
+      "peak_memory_mib": 982.75,
+      "peak_memory_scope": "integrated experiment process high-water mark"
+    },
+    {
+      "experiment_name": "diagnostic_fixed_feature_scorer_v1",
+      "model": "fixed diagnostic feature scorer (unfitted; no learned reranker)",
+      "training_split": null,
+      "training_method": "none; AppsRetrieval exposes no train/dev relevance labels",
+      "feature_correlation_analysis": "not performed; only test relevance labels exist",
+      "test_split_usage": "one-shot final metric evaluation and post-ranking diagnostics only",
+      "candidate_depth_per_retriever": 200,
+      "candidate_construction": "union of independent dense top-200 and BM25 top-200; ranks and scores retained",
+      "feature_names": [
+        "dense_cosine_similarity",
+        "bm25_score",
+        "dense_rank",
+        "bm25_rank",
+        "dense_reciprocal_rank",
+        "bm25_reciprocal_rank",
+        "query_token_count",
+        "candidate_token_count",
+        "lexical_overlap_count",
+        "lexical_overlap_fraction",
+        "identifier_overlap_count",
+        "identifier_overlap_fraction",
+        "exact_phrase_bigram_count",
+        "query_terms_in_candidate",
+        "query_term_fraction"
+      ],
+      "scoring_formula": "equal mean of per-query min-max dense cosine and BM25 scores, dense/BM25 reciprocal ranks, lexical overlap fraction, identifier overlap fraction, and exact query bigram fraction; no fitted weights",
+      "dataset_task": "AppsRetrieval",
+      "dataset_revision": "f22508f96b7a36c2415181ed8bb76f76e04ae2d5",
+      "split": "test",
+      "corpus_size": 8765,
+      "query_count": 3765,
+      "ndcg_at_10": 0.05814,
+      "mrr_at_10": 0.047741626088239605,
+      "classification_vs_baseline": "WORSE",
+      "learned_reranker_status": "BLOCKED: no legitimate train/dev labels; no model was trained",
+      "device": "cpu",
+      "batch_size": 16,
+      "runtime_seconds": 105.64314899998135,
+      "runtime_breakdown_seconds": {
+        "dataset_loading_seconds": 9.642842100001872,
+        "bm25_index_build_seconds": 0.0,
+        "bm25_cache_load_seconds": 0.04134170000907034,
+        "bm25_retrieval_seconds": 12.618069299991475,
+        "dense_model_load_seconds": 0.0,
+        "dense_embedding_seconds_this_run": 0.0,
+        "dense_embedding_cache_load_seconds": 0.0027950000076089054,
+        "cached_cold_dense_embedding_seconds_from_cache_metadata": 253.75826700002654,
+        "dense_top200_retrieval_seconds": 2.4832415000128094,
+        "feature_extraction_seconds": 72.02391889999853,
+        "diagnostic_scorer_inference_seconds": 1.980619599984493,
+        "metric_seconds": 0.9395379000052344,
+        "dense_embedding_cache_hit": true
+      },
+      "peak_memory_bytes": 2638467072,
+      "peak_memory_mib": 2516.24,
+      "decision": "Do not adopt a learned reranker; obtain a labeled train/dev split before fitting or tuning one.",
+      "completed_at_utc": "2026-09-30T14:39:49.725927+00:00"
+    },
+    {
+      "experiment_name": "diagnostic_fixed_feature_scorer_v1_20260930T144337Z",
+      "model": "fixed diagnostic feature scorer (unfitted; no learned reranker)",
+      "training_split": null,
+      "training_method": "none; AppsRetrieval exposes no train/dev relevance labels",
+      "feature_correlation_analysis": "not performed; only test relevance labels exist",
+      "test_split_usage": "one-shot final metric evaluation and post-ranking diagnostics only",
+      "candidate_depth_per_retriever": 200,
+      "candidate_construction": "union of independent dense top-200 and BM25 top-200; ranks and scores retained",
+      "feature_names": [
+        "dense_cosine_similarity",
+        "bm25_score",
+        "dense_rank",
+        "bm25_rank",
+        "dense_reciprocal_rank",
+        "bm25_reciprocal_rank",
+        "query_token_count",
+        "candidate_token_count",
+        "lexical_overlap_count",
+        "lexical_overlap_fraction",
+        "identifier_overlap_count",
+        "identifier_overlap_fraction",
+        "exact_phrase_bigram_count",
+        "query_terms_in_candidate",
+        "query_term_fraction"
+      ],
+      "scoring_formula": "equal mean of per-query min-max dense cosine and BM25 scores, dense/BM25 reciprocal ranks, lexical overlap fraction, identifier overlap fraction, and exact query bigram fraction; no fitted weights",
+      "dataset_task": "AppsRetrieval",
+      "dataset_revision": "f22508f96b7a36c2415181ed8bb76f76e04ae2d5",
+      "split": "test",
+      "corpus_size": 8765,
+      "query_count": 3765,
+      "ndcg_at_10": 0.05814,
+      "mrr_at_10": 0.047741626088239605,
+      "classification_vs_baseline": "WORSE",
+      "learned_reranker_status": "BLOCKED: no legitimate train/dev labels; no model was trained",
+      "device": "cpu",
+      "batch_size": 16,
+      "runtime_seconds": 106.1015430999978,
+      "runtime_breakdown_seconds": {
+        "dataset_loading_seconds": 9.807386200001929,
+        "bm25_index_build_seconds": 0.0,
+        "bm25_cache_load_seconds": 0.041216200013877824,
+        "bm25_retrieval_seconds": 12.601626199990278,
+        "dense_model_load_seconds": 0.0,
+        "dense_embedding_seconds_this_run": 0.0,
+        "dense_embedding_cache_load_seconds": 0.0029657999984920025,
+        "cached_cold_dense_embedding_seconds_from_cache_metadata": 253.75826700002654,
+        "dense_top200_retrieval_seconds": 2.4817877000023145,
+        "feature_extraction_seconds": 71.91203690011753,
+        "diagnostic_scorer_inference_seconds": 2.324990599503508,
+        "metric_seconds": 0.9800840000098106,
+        "dense_embedding_cache_hit": true
+      },
+      "peak_memory_bytes": 1388613632,
+      "peak_memory_mib": 1324.29,
+      "decision": "Do not adopt a learned reranker; obtain a labeled train/dev split before fitting or tuning one.",
+      "completed_at_utc": "2026-09-30T14:43:37.886961+00:00"
+    }
+  ],
+  "incomplete_attempts": [
+    {
+      "experiment_name": "jina_code_raw_incomplete",
+      "model": "jinaai/jina-embeddings-v2-base-code",
+      "model_parameters_reported": 161000000,
+      "device": "cpu",
+      "batch_size": 16,
+      "status": "stopped_before_evaluation_completed",
+      "observed_progress": "47/236 query batches (20%)",
+      "reason": "observed throughput around 1.7 queries/second made paired full ablations impractical; no metrics recorded"
+    }
+  ],
+  "decision": {
+    "classification": "WORSE",
+    "selected_for_next_phase": "baseline_control",
+    "reason": "Both completed BGE experiments scored below the verified baseline on both NDCG@10 and MRR@10."
+  },
+  "lexical_decision": {
+    "classification": "NO SIGNIFICANT IMPROVEMENT",
+    "selected_candidate": "baseline_control",
+    "best_hybrid_by_ndcg_at_10": "hybrid_rrf_depth200_k60",
+    "baseline_control_ndcg_at_10": 0.06596,
+    "baseline_control_mrr_at_10": 0.05581,
+    "reason": "The tested RRF configurations had mixed metric directions relative to the baseline."
+  },
+  "lexical_experiment_run": {
+    "completed_at_utc": "2026-09-30T14:21:17.052833+00:00",
+    "dataset_task": "AppsRetrieval",
+    "dataset_revision": "f22508f96b7a36c2415181ed8bb76f76e04ae2d5",
+    "split": "test",
+    "corpus_size": 8765,
+    "query_count": 3765,
+    "qrels_query_count": 3765,
+    "dataset_loading_seconds": 16.71581100000185,
+    "bm25_index_build_seconds": 2.3456791999924462,
+    "bm25_cache_load_seconds": 0.0,
+    "bm25_retrieval_seconds": 12.61481869997806,
+    "dense_model_load_seconds": 2.606802599999355,
+    "dense_embedding_seconds": 253.75826700002654,
+    "dense_cache_load_seconds": 0.0,
+    "dense_embedding_cache_hit": false,
+    "cold_dense_embedding_seconds": 253.75826700002654,
+    "dense_ranking_seconds": 2.54671390002477,
+    "integrated_runner_wall_seconds": 300.3433246000204,
+    "peak_memory_bytes": 1030492160,
+    "peak_memory_mib": 982.75,
+    "bm25_index_cache": "artifacts\\experiments\\cache\\apps_test_bm25_c6509ee25c841160.pkl",
+    "dense_embedding_cache": "artifacts\\experiments\\cache\\apps_test_minilm_9dc7b770b5cc6fb9.npz",
+    "diagnostics_file": "artifacts\\experiments\\diagnostics\\lexical_retrieval.json"
+  },
+  "diagnostic_reranker_run": {
+    "completed_at_utc": "2026-09-30T14:43:37.886961+00:00",
+    "task_metadata_eval_splits": [
+      "test"
+    ],
+    "loaded_splits": [
+      "test"
+    ],
+    "corpus_availability_by_split": [
+      "test"
+    ],
+    "query_availability_by_split": [
+      "test"
+    ],
+    "qrels_availability_by_split": [
+      "test"
+    ],
+    "counts": {
+      "corpus": 8765,
+      "queries": 3765,
+      "qrels": 3765
+    },
+    "learned_reranker_status": "BLOCKED: no train/dev labels",
+    "test_metrics_for_fixed_diagnostic_scorer": {
+      "NDCG@10": 0.05814,
+      "MRR@10": 0.047741626088239605
+    },
+    "metric_classification_vs_baseline": "WORSE",
+    "baseline": {
+      "NDCG@10": 0.06596,
+      "MRR@10": 0.05581
+    },
+    "other_controls": {
+      "bm25_code_lexical": {
+        "NDCG@10": 0.01528,
+        "MRR@10": 0.012933978372225385
+      },
+      "hybrid_rrf_depth200_k60": {
+        "NDCG@10": 0.06696,
+        "MRR@10": 0.05499040873542862
+      },
+      "hybrid_rrf_depth100_k10": {
+        "NDCG@10": 0.06435,
+        "MRR@10": 0.05662450726195743
+      }
+    },
+    "diagnostics_file": "artifacts/experiments/diagnostics/reranker_features.json"
+  }
+}

@@ -1,0 +1,8 @@
+mteb==2.21.10
+datasets==5.0.1
+sentence-transformers==6.1.0
+numpy==1.26.4
+pandas
+pyyaml
+rank-bm25==0.2.2
+scipy

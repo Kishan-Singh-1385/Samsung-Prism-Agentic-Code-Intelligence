@@ -1,0 +1,27 @@
+experiment:
+  task: AppsRetrieval
+  name_prefix: bge_code
+  output_folder: artifacts/experiments/mteb
+  results_file: artifacts/experiments/results.json
+  dataset_revision: f22508f96b7a36c2415181ed8bb76f76e04ae2d5
+
+model:
+  name: Matthieufromparis/bge-small-code-search-v1
+  revision: e1a4d1213decff82b028833a677aa2410a5c67ed
+  trust_remote_code: false
+  max_seq_length: 512
+
+runtime:
+  device: cpu
+  batch_size: 16
+  seed: 42
+
+preprocessing:
+  version: code_representation_v1
+  include_title_when_nonempty: true
+  include_language: true
+  include_distinct_starter_code: true
+  starter_overlap_threshold: 0.8
+  normalize_query_whitespace: true
+  preserve_original_query_column: true
+  include_urls: false

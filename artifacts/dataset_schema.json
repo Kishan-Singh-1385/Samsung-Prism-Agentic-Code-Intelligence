@@ -1,0 +1,105 @@
+{
+  "task_name": "AppsRetrieval",
+  "available_splits_by_data_component": {
+    "corpus": [
+      "test"
+    ],
+    "queries": [
+      "test"
+    ],
+    "relevant_docs": [
+      "test"
+    ]
+  },
+  "evaluation_splits": [
+    "test"
+  ],
+  "task_metadata": {
+    "dataset": {
+      "path": "CoIR-Retrieval/apps",
+      "revision": "f22508f96b7a36c2415181ed8bb76f76e04ae2d5"
+    },
+    "eval_splits": [
+      "test"
+    ],
+    "eval_langs": [
+      "eng-Latn",
+      "python-Code"
+    ],
+    "main_score": "ndcg_at_10",
+    "revision": "f22508f96b7a36c2415181ed8bb76f76e04ae2d5"
+  },
+  "splits": {
+    "test": {
+      "default": {
+        "query_count": 3765,
+        "corpus_document_count": 8765,
+        "qrels_query_count": 3765,
+        "query_fields": [
+          "id",
+          "partition",
+          "text",
+          "language",
+          "meta_information",
+          "title"
+        ],
+        "query_value_type": "dict",
+        "corpus_document_fields": [
+          "id",
+          "partition",
+          "text",
+          "language",
+          "meta_information",
+          "title"
+        ],
+        "corpus_document_type": "dict",
+        "qrels_shape": {
+          "container_type": "dict",
+          "query_to_document_mapping": true,
+          "sample_query_id": "q8513",
+          "sample_judgments": {
+            "d8513": 1
+          }
+        },
+        "identifier_linkage": {
+          "query_id_from_qrels": "q8513",
+          "query_id_field": "id",
+          "relevant_document_id_from_qrels": "d8513",
+          "corpus_document_id": "d8513",
+          "document_has_matching_id": true
+        },
+        "metadata_fields_observed": [
+          "meta_information (opaque value; inspect sample)"
+        ],
+        "nested_metadata_fields_in_sample": {
+          "meta_information": [
+            "starter_code",
+            "url"
+          ]
+        },
+        "sample_query": {
+          "id": "q8513",
+          "partition": "test",
+          "text": "You are given four integers $a$, $b$, $x$ and $y$. Initially, $a \\ge x$ and $b \\ge y$. You can do the following operation no more than $n$ times:\n\n  Choose either $a$ or $b$ and decrease it by one. However, as a result of this operation, value of $a$ cannot become less than $x$, and value of $b$ cannot become less than $y$. \n\nYour task is to find the minimum possible product of $a$ and $b$ ($a \\cdot b$) you can achieve by applying the given operation no more than $n$ times.\n\nYou have to answer $t$ independent test cases.\n\n\n-----Input-----\n\nThe first line of the input contains one integer $t$ (…",
+          "language": "PYTHON",
+          "meta_information": {
+            "starter_code": "",
+            "url": "https://codeforces.com/problemset/problem/1409/B"
+          },
+          "title": ""
+        },
+        "sample_relevant_document": {
+          "id": "d8513",
+          "partition": "test",
+          "text": "t = int(input())\n# a = list(map(int, input().split()))\nfor _ in range(t):\n    a,b,x,y,n = map(int,input().split())\n    \n    options = []\n    a2 = max(a-n,x)\n    b2 = max(b-(n-(a-a2)),y)\n    options.append(a2*b2)\n    \n    b2 = max(b-n,y)\n    a2 = max(a-(n-(b-b2)),x)\n    options.append(a2*b2)\n    \n    print(min(options))",
+          "language": "PYTHON",
+          "meta_information": {
+            "starter_code": "",
+            "url": "https://codeforces.com/problemset/problem/1409/B"
+          },
+          "title": ""
+        }
+      }
+    }
+  }
+}

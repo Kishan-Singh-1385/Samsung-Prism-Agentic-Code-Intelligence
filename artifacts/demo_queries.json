@@ -1,0 +1,22 @@
+[
+  {
+    "intent": "BFS and graph traversal",
+    "query": "Use breadth-first search to find shortest path distances in an unweighted graph."
+  },
+  {
+    "intent": "sorting and binary search",
+    "query": "Sort an integer array, then use binary search to find the index of a target value."
+  },
+  {
+    "intent": "dynamic programming",
+    "query": "Find the length of the longest increasing subsequence using dynamic programming."
+  },
+  {
+    "intent": "input preprocessing",
+    "query": "Read space-separated integers from input, convert them to a list, and remove duplicate values while preserving order."
+  },
+  {
+    "intent": "data structure manipulation",
+    "query": "Use a stack to check whether parentheses and square brackets in a string are balanced."
+  }
+]

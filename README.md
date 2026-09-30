@@ -228,6 +228,12 @@ The final project presentation is available here:
 
 [SAMSUNG-PRISM-AGENTIC-CODE-INTELLIGENCE.pptx](presentation/SAMSUNG-PRISM-AGENTIC-CODE-INTELLIGENCE.pptx)
 
+## AI Disclosure
+
+[View the AI disclosure](AI_DISCLOSURE.md) for details about the retrieval model,
+development assistance, and the absence of generative AI from the runtime
+pipeline.
+
 ## Team
 
 Team member information was not present in the existing repository.
@@ -246,3 +252,19 @@ Team member information was not present in the existing repository.
 - Cross-version and evolutionary retrieval have not been implemented.
 - The reported metrics are retrieval metrics; the system does not generate
   explanations or code.
+
+## Submission Checklist
+
+| Requirement | Status |
+|---|---|
+| Source Code | DONE |
+| Presentation | DONE - `presentation/SAMSUNG-PRISM-AGENTIC-CODE-INTELLIGENCE.pptx` |
+| Demo Video | PENDING - no local video or verified external link found |
+| AI Disclosure | DONE - [`AI_DISCLOSURE.md`](AI_DISCLOSURE.md) |
+| README | DONE |
+| APK/SDK | N/A - not required for this retrieval project |
+| Tag | DONE - `PRISM_GENAI_HACKATHON_Y2026` exists remotely |
+| Other: AppsRetrieval submission JSON | DONE - candidate and baseline artifacts are included |
+
+The tag remains at commit `06c83e636324b215be0fa5f11adfb9f8f5a9b114`;
+documentation commits made after tagging are not included in that tag.

@@ -215,12 +215,9 @@ The demo uses the official MiniLM index, returns real corpus document IDs and
 similarity scores, and displays a short code preview and retrieval latency.
 Use `--top-k N` to change the number of displayed results.
 
-## Demo video
+## Demo Video
 
-Demo video link: TO BE ADDED AFTER UPLOAD
-
-No demo video file or uploaded link was present in the repository when this
-README was prepared.
+[Watch / Download the Samsung PRISM Demo Video](demo/samsung_prism_demo.mp4)
 
 ## Presentation
 
@@ -259,7 +256,7 @@ Team member information was not present in the existing repository.
 |---|---|
 | Source Code | DONE |
 | Presentation | DONE - `presentation/SAMSUNG-PRISM-AGENTIC-CODE-INTELLIGENCE.pptx` |
-| Demo Video | PENDING - no local video or verified external link found |
+| Demo Video | DONE - [`demo/samsung_prism_demo.mp4`](demo/samsung_prism_demo.mp4) |
 | AI Disclosure | DONE - [`AI_DISCLOSURE.md`](AI_DISCLOSURE.md) |
 | README | DONE |
 | APK/SDK | N/A - not required for this retrieval project |
